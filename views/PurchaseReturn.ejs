@@ -1,0 +1,158 @@
+<% include partials/had %>
+<style>
+.tore{
+margin-left:400px;
+margin-right:400px;
+margin-top:60px;
+border: 1px solid;
+}
+.form-group{
+    padding:10px;
+}
+.frm{
+    padding:10px;
+}
+#btnc{
+    margin-left:200;
+}
+</style>
+<body>
+<div class="tore">
+<form method="post" autocomplete="off">
+<div class="form-group">
+<label for="example-date-input">Purchase Date</label>
+
+  <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="Purchase_Date" value="<%= PurchaseReturn.Purchase_Date %>">
+
+</div>
+<div class="frm">
+ 
+<select class="form-control" name="Supplier_Name" value="<%= PurchaseReturn.Supplier_Name %>">
+<% for(var i=0; i<users.length;i++) { %>
+  <option><%= users[i].Supplier_Name %></option>
+  <% } %>
+</select>
+
+<br />
+
+<select class="form-control" name="Product_Name" value="<%= PurchaseReturn.Product_Name %>">
+<% for(var i=0; i<arusers.length;i++) { %>
+  <option><%= arusers[i].Product_Name %></option>
+  <% } %>
+</select>
+
+
+  </div>
+
+  <div class="form-group">
+<label for="formGroupExampleInput">Qty</label>
+<input type="number" class="form-control"  placeholder="Qty" name="QTY" id="qnt" readonly value="<%= PurchaseReturn.QTY %>">
+</div>
+
+<div class="form-group">
+<label for="formGroupExampleInput">Return Qty</label>
+<input type="number" class="form-control"  placeholder="Return Qty" name="Return_QTY" id="qnt" >
+</div>
+
+
+
+<div class="form-group">
+  <label for="exampleFormControlTextarea2">Return Description</label>
+  <input class="form-control " id="exampleFormControlTextarea2" rows="3" name=" Return_Description">
+</div>
+
+
+<div class="form-group">
+<label for="formGroupExampleInput">Price</label>
+<input type="text" required class="form-control" placeholder="Price" name="Price"  readonly id="price" value="<%= PurchaseReturn.Price %>">
+</div>
+
+
+
+
+<div class="form-group">
+<label for="formGroupExampleInput">CGST 2.5%</label>
+<input type="text" required class="form-control" id="cast" placeholder="CGST" name="CGST" readonly value="<%= PurchaseReturn.CGST %>" >
+</div>
+
+<div class="form-group">
+<label for="formGroupExampleInput">SGST 2.5%</label>
+<input type="text" required class="form-control" id="sgst" placeholder="SGST" name="SGST" readonly value="<%= PurchaseReturn.SGST %>">
+</div>  
+
+<div class="form-group">
+<label for="formGroupExampleInput">Total</label>
+<input type="text" required class="form-control"  id="amount"  placeholder="Total" name="Total" readonly value="<%= PurchaseReturn.Total %>" >
+</div>
+
+<button type="submit" class="btn btn-primary" id="btnc">Add</button>
+
+
+
+</form>
+
+<script type="text/javascript">
+var qunt = 0;
+var price = 0;
+var total = 0;
+var amount=0;
+var cast=0;
+var sgst=0;
+
+$(document).ready(function(){
+  $('#qnt').keyup(function(){
+    qunt = this.value;
+    total = qunt*price;
+    console.log(total);
+    total=total*2.5/100;
+    sgst=total;
+    cast=total;
+    amount=(qunt*price)+cast+sgst;
+    $('#amount').val(amount);   
+  $('#cast').val(total);
+  $('#sgst').val(total);
+});
+$('#price').keyup(function(){
+  price = this.value;
+  total = qunt*price;
+  console.log(total);
+  total=total*2.5/100;
+  sgst=total;
+  cast=total;
+
+  amount=(qunt*price)+cast+sgst;
+  
+  $('#amount').val(amount);
+  $('#cast').val(total); 
+  $('#sgst').val(total);
+ 
+});
+
+  $('#amount').keyup(function(){
+  
+    qunt = this.value;
+    total = qunt*price;
+    console.log(total);
+    total=total*2.5/100;
+    price=this.value;
+    sgst=total;
+    cast=total;
+  amount=(qunt*price)+cast+sgst;
+
+  $('#cast').val(total);
+  $('#sgst').val(total);
+
+  $('#amount').val(amount);
+
+  });
+  
+
+
+
+
+
+
+});
+</script>
+</div>
+</body>

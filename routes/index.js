@@ -1125,6 +1125,49 @@ router.get('/ShowAllPurchase', function(req, res, next) {
     });
 });
 
+router.get('/PurchaseReturn/:id', function(req, res) {
+    console.log(req.params.id);
+    Pur.findById(req.params.id, function(err, user) {
+        if (err) {
+            console.log(err);
+        } else {
+            Sup.find(function(err, users) {
+                if (err) { console.log(err); } else {
+
+                    Prod.find(function(err, arusers) {
+                        if (err) { console.log(err); } else {
+
+                            console.log(user);
+
+                            res.render('PurchaseReturn', { PurchaseReturn: user, users: users, arusers: arusers });
+                        }
+                    });
+                }
+            });
+        }
+
+    });
+});
+
+/* UPDATE Brand */
+router.post('/PurchaseReturn/:id', function(req, res) {
+    Pur.findByIdAndUpdate(req.params.id, req.body, function(err) {
+        if (err) {
+
+            res.redirect('edits/' + req.params.id);
+        } else {
+
+            res.redirect('/ShowAllPurchase');
+        }
+    });
+});
+
+
+
+
+
+
+
 
 
 
