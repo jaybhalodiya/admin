@@ -1,0 +1,49 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:50px;
+        margin-right:50px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Size</th>
+   
+    <th scope="col">Edit/Delete</th>
+    
+</tr>
+</thead>
+<tbody>
+<% ShowAllSize.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Size %></td>
+
+
+<td>
+        <a href='/edtsSize/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deleteSize/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

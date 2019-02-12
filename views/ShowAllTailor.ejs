@@ -1,0 +1,55 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:100px;
+        margin-right:100px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Tailor Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Mobile</th>
+    <th scope="col">Email_ID</th>
+    <th scope="col">Company_Name</th>
+
+    <th scope="col">Edit/Delete</th>
+</tr>
+</thead>
+<tbody>
+<% ShowAllTailor.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Tailor_Name %></td>
+<td> <%= demo.Address %></td>
+<td> <%= demo.Mobile %></td>
+<td> <%= demo.Email_ID %></td>
+<td> <%= demo.Company_Name %></td>
+
+<td>
+        <a href='/edtTailor/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deletesTailor/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

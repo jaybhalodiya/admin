@@ -1,0 +1,127 @@
+<% include partials/had %>
+<style>
+        .frm{
+            margin-top:60px;
+            margin-left:300px;
+            margin-right:300px;
+            
+            border: 1px solid
+        }
+        .form-group{
+            padding:10px;
+        }
+       .frt{
+           padding:10px;
+       }
+      #ctn{
+        margin-left:250px;
+      }
+      img{
+        max-width:180px;
+      }
+      input[type=file]{
+      padding:10px;
+      background:#2d2d2d;}
+</style>
+
+
+
+<body>
+<div class="frm">
+<form enctype="multipart/form-data"  id="myForm" method="post">
+<div class="form-group">
+  <label for="formGroupExampleInput">Product Name</label>
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name" name="Product_Name">
+</div>
+
+<div class="form-group">
+<label for="formGroupExampleInput">Price</label>
+<input type="text" required class="form-control" id="formGroupExampleInput" placeholder="Price" name="Price"   >
+</div>
+
+<div class="form-group">
+  <label for="exampleFormControlTextarea2">Description</label>
+  <input class="form-control " id="exampleFormControlTextarea2" rows="3" name="Description">
+</div>
+
+<div class="form-group">
+<label for="formGroupExampleInput">Qty</label>
+<input type="number" class="form-control" id="formGroupExampleInput" placeholder="Qty" name="QTY">
+</div>
+<div class="frt">
+
+<select class="form-control" name="Category_Name">
+<% for(var i=0; i<users.length;i++) { %>
+  <option><%= users[i].Category_Name %></option>
+  <% } %>
+</select>
+
+
+<br />
+<select class="form-control" name="Brand_Name">
+<% for(var i=0; i<user.length;i++) { %>
+  <option><%= user[i].Brand_Name %></option>
+  <% } %>
+</select>
+
+
+<br />
+<select class="form-control" name="Size">
+<% for(var i=0; i<anuser.length;i++) { %>
+  <option><%= anuser[i].Size %> </option>
+  <% } %>
+</select>
+
+
+<br />
+<select class="form-control" name="Color_Name">
+<span>Color</span>
+<% for(var i=0; i<cole.length;i++) { %>
+  <option><%= cole[i].Color_Name %></option>
+  <% } %>
+</select>
+<br />
+
+
+<select class="form-control" name="Offer">
+<% for(var i=0; i<ofe.length;i++) { %>
+  <option><%= ofe[i].Title %></option>
+  <% } %>
+</select>
+<br />
+
+
+
+  <input type='file' onchange="readURL(this);" name="file"/>
+<img id="blah"  alt="your image" />
+
+
+
+</div>
+<button type="submit" class="btn btn-primary" id="ctn">Add</button>
+<a class="btn btn-primary" href="ShowAllProduct"> Show All Product</a>
+
+
+</br>
+
+</form>
+
+<script>
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+          $('#blah')
+              .attr('src', e.target.result);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+</script>
+
+</div>
+<br />
+</body>

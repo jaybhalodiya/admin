@@ -1,0 +1,68 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:40px;
+        margin-right:40px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Purchase Date</th>
+    <th scope="col">Supplier Name</th>
+    <th scope="col">Product Name</th>
+    <th scope="col">QTY</th>
+    <th scope="col">Price</th>
+    <th scope="col">CGST</th>
+    <th scope="col">SGST</th>
+    <th scope="col">Total</th>
+    
+
+
+    <th scope="col">Edit/Delete/Purchase Return</th>
+</tr>
+</thead>
+<tbody>
+<% ShowAllPurchase.forEach(function(demo){%>
+<tr>
+
+<td> <%= moment(demo.Purchase_Date).format('LL') %></td>
+<td> <%= demo.Supplier_Name %></td>
+<td> <%= demo.Product_Name %></td>
+<td> <%= demo.QTY %></td>
+<td> <%= demo.Price %></td>
+<td> <%= demo.CGST %></td>
+<td> <%= demo.SGST %></td>
+<td> <%= demo.Total %></td>
+
+
+<td>
+        <a href='#'>Edit</a>  |
+
+        
+
+        <a href='#'>Purchase Return</a> 
+
+
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

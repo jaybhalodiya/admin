@@ -1,0 +1,52 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:200px;
+        margin-right:200px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">City Name</th>
+    <th scope="col">Area Name</th>
+    <th scope="col">Pincode</th>
+
+    <th scope="col">Edit/Delete</th>
+    
+</tr>
+</thead>
+<tbody>
+<% ShowAllArea.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.City_Name %></td>
+<td> <%= demo.Area_Name %></td>
+<td><%= demo.Pincode %></td>
+
+<td>
+        <a href='/edts/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deleteArea/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

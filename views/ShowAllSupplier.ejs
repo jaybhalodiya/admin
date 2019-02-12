@@ -1,0 +1,55 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:100px;
+        margin-right:100px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Supplier Name</th>
+    <th scope="col">Mobile Number</th>
+    <th scope="col">Email ID</th>
+    <th scope="col">City Name</th>
+    <th scope="col">Area Name</th>
+
+    <th scope="col">Edit/Delete</th>
+</tr>
+</thead>
+<tbody>
+<% ShowAllSupplier.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Supplier_Name %></td>
+<td> <%= demo.Mobile %></td>
+<td> <%= demo.Email_ID %></td>
+<td> <%= demo.City_Name %></td>
+<td> <%= demo.Area_Name %></td>
+
+<td>
+        <a href='/edtsSupplier/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deleteSupplier/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

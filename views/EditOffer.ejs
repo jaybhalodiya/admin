@@ -1,0 +1,57 @@
+<% include partials/had %>
+<style>
+.ftm{
+    margin-top:60px;
+    margin-left:400px;
+    margin-right:400px;
+    
+    border: 1px solid
+}
+
+.form-group{
+    padding:10px;
+}
+#btnctn{
+    margin-left:180px;
+   
+}
+</style>
+<body>
+
+<form  method="post" autocomplete="off">
+<div class="ftm">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Title</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" name="Title" value="<%= EditOffer.Title %>">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Description" value="<%= EditOffer.Description %>"></textarea>
+  </div>
+
+ 
+  <div class="form-group">
+  <label for="example-date-input">Start_Date</label>
+ 
+    <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="Start_Date" value="<%= EditOffer.Start_Date %>">
+ 
+</div>
+
+<div class="form-group">
+  <label for="example-date-input">End_Date</label>
+ 
+    <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="End_Date" value="<%= EditOffer.End_Date %>">
+ 
+</div>
+
+
+
+<button type="submit" class="btn btn-primary" id="btnctn">Add</button>
+<a class="btn btn-primary" href="ShowAllOffer"> Show All Offer</a>
+
+
+</div>
+<br />
+  </form>
+</body>

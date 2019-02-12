@@ -1,0 +1,49 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:200px;
+        margin-right:200px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Category Name</th>
+
+    <th scope="col">Edit/Delete</th>
+    
+</tr>
+</thead>
+<tbody>
+<% ShowAllCategory.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Category_Name %></td>
+
+
+<td>
+        <a href='/edtsCategory/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deleteCategory/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

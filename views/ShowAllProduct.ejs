@@ -1,0 +1,69 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:40px;
+        margin-right:40px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <a href='/exporttocsv' style="margin-left:60%; "> Export to CSV </a>
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Product Name</th>
+    <th scope="col">Price</th>
+    <th scope="col">Description</th>
+    <th scope="col">QTY</th>
+    <th scope="col">Category Name</th>
+    <th scope="col">Brand Name</th>
+    <th scope="col">Size</th>
+    <th scope="col">Color Name</th>
+    <th scope="col">Offer</th>
+   
+    <th scope="col">Image</th>
+
+
+    <th scope="col">Edit/Delete</th>
+</tr>
+</thead>
+<tbody>
+<% ShowAllProduct.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Product_Name %></td>
+<td> <%= demo.Price %></td>
+<td> <%= demo.Description %></td>
+<td> <%= demo.QTY %></td>
+<td> <%= demo.Category_Name %></td>
+<td> <%= demo.Brand_Name %></td>
+<td> <%= demo.Size %></td>
+<td> <%= demo.Color_Name %></td>
+<td> <%= demo.Offer %></td>
+<td> <%= demo.Image %></td>
+
+
+<td>
+        <a href='/edtsProduct/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deleteProduct/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

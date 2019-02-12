@@ -1,0 +1,45 @@
+<% include partials/had %>
+<style>
+.tbl{
+    margin: 70px;
+    border: 1px solid ;
+    margin-left:400px;
+    margin-right:400px;
+}
+.froms{
+    padding:10px;
+
+}
+#tope{
+    margin-left:180px;
+    padding-left:30px;
+    padding-right:30px;
+ }
+
+
+    
+</style>
+<body>
+
+<div class="tbl">
+<div class="froms">
+<form action="/City" method="post" autocomplete="off">
+
+<select class="form-control" name="State_Name">
+<% for(var i=0; i<users.length; i++) { %>
+  <option><%= users[i].State_Name %></option>
+  <% } %>
+</select>
+
+<br />
+<div class="form-group">
+      
+      <input type="text" class="form-control" id="inputCity" placeholder="Enter City" name="City_Name">
+    </div>
+    <button type="submit" class="btn btn-primary" id="tope">Add</button>
+<a class="btn btn-primary" href="ShowAllCity"> Display All State</a>
+</form>
+  </div>
+  </div>
+  
+</body>

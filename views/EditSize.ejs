@@ -1,0 +1,30 @@
+<% include partials/had %>
+<style>
+.btna{
+    margin-left:400px;
+    margin-top:80px;
+
+    margin-right:400px;
+  border: 1px solid ;
+}
+#btncta{
+    margin-left:180px;
+}
+.form-group{
+    padding:10px;
+}
+</style>
+
+<body>
+<div class="btna">
+<form  method="post" autocomplete="off">
+<div class="form-group">
+  <label for="formGroupExampleInput">Size</label>
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter Size" name="Size" value="<%= EditSize.Size %>">
+</div>
+
+<button type="submit" class="btn btn-primary" id="btncta">Add</button>
+
+</form>
+</div>
+</body>

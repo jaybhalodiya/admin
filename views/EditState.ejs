@@ -1,0 +1,33 @@
+<% include partials/had %>
+<style>
+    .top{
+        margin: 70px;
+  border: 1px solid ;
+  margin-left:400px;
+  margin-right:400px;
+    }
+    .form-group{
+        padding:10px;
+    }
+    #toper{
+       margin-left:180px;
+       padding-left:30px;
+       padding-right:30px;
+    }
+
+</style>
+<body>
+<div class="top">
+<form  method="post" autocomplete="off">
+<div class="form-group">
+  <label for="formGroupExampleInput">State</label>
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example State" name="State_Name" required="" value="<%= EditState.State_Name %>">
+</div>
+<button type="submit" class="btn btn-primary" id="toper">Update</button>
+
+</form>
+</div>
+
+</body>
+
+

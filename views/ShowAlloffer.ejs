@@ -1,0 +1,54 @@
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:50px;
+        margin-right:50px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Start_Date</th>
+    <th scope="col">End_Date</th>
+   
+  
+    <th scope="col">Edit/Delete</th>
+    
+</tr>
+</thead>
+<tbody>
+<% ShowAllOffer.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Title %></td>
+<td> <%= demo.Description %></td>
+<td>  <%= moment(demo.Start_Date).format('LL') %></td>
+<td> <%= moment(demo.End_Date).format('LL') %></td>
+
+<td>
+        <a href='/edtsOffer/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deleteOffer/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

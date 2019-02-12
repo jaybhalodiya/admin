@@ -1,0 +1,52 @@
+<% include partials/had %>
+<style>
+    .mrg{
+       margin-left:400px;
+       margin-right:400px;
+        margin-top:80px;
+        margin-bottom:40px;
+
+  border: 1px solid;
+    }
+    .form-grou{
+        padding:10px;
+    }
+    #btncnt{
+        margin-left:180px;
+        
+    }
+</style>
+<body>
+<div class="mrg">
+<form action="/Company" method="post" autocomplete="off">
+<div class="form-grou">
+
+<div class="form-group">
+  <label for="formGroupExampleInput">Company Name</label>
+  <input type="text" class="form-control" placeholder="First name" name="Company_Name">
+</div>
+<div class="form-group">
+<label for="inputAddress">Address</label>
+<input type="text" class="form-control" id="inputAddress" placeholder="Enter Address" name="Address">
+</div>
+
+<div class="from-group">
+<label>Mobile Number</label>
+<input type="text" class="form-control"  placeholder="Mobile Number" name="Mobile">
+</div>
+
+<div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="Email_ID">
+  </div>
+
+  <div class="form-group">
+      <label for="inputCity">Area</label>
+      <input type="text" class="form-control" id="inputCity" placeholder="Enter Area" name="Area">
+    </div>
+    <button type="submit" class="btn btn-primary" id="btncnt">Add</button>
+    <a class="btn btn-primary" href="ShowAllCompany"> Show All Details</a>
+</div>
+</form>
+</div>
+</body>

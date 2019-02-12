@@ -1,0 +1,64 @@
+<% include partials/had %>
+<style>
+    .frmcnt{
+        margin-top:50px;
+      margin-left:300px;
+      margin-right:300px;
+        border: 1px solid;
+    }
+    .sp{
+        padding:10px;
+    }
+    .btnctn{
+        margin-left:250px;
+        margin-top:10px;
+       
+    }
+</style>
+<body>
+
+<div class="frmcnt">
+<form  method="post" autocomplete="off">
+<div class="sp">
+
+<div class="form-group">
+  <label for="formGroupExampleInput">Supplier Name</label>
+  <input type="text" class="form-control" placeholder="First name" name="Supplier_Name" value="<%= EditSupplier.Supplier_Name %>">
+</div>
+
+  <div class="from-group">
+<label>Mobile Number</label>
+<input type="text" class="form-control"  placeholder="Mobile Number" name="Mobile" value="<%= EditSupplier.Mobile %>">
+</div>
+
+<div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email ID" name="Email_ID" value="<%= EditSupplier.Email_ID %>">
+  </div>
+
+
+ 
+  <select class="form-control" name="City_Name" value="<%= EditSupplier.City_Name %>">
+  <% for(var i=0; i<users.length;i++) { %>
+    <option><%= users[i].City_Name %></option>
+    <% } %>
+  </select>
+  
+<br />
+
+  <select class="form-control" name="Area_Name" value="<%= EditSupplier.Area_Name %>">
+  <% for(var i=0; i<arusers.length;i++) { %>
+    <option><%= arusers[i].Area_Name %></option>
+    <% } %>
+  </select>
+
+  
+<div class="btnctn">
+<button type="submit" class="btn btn-primary" >Update</button>
+
+</div>
+</div>
+  </form>
+  </div>
+ 
+</body>

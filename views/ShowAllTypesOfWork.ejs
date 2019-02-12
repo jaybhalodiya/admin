@@ -1,0 +1,49 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:100px;
+        margin-right:100px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Work Name</th>
+  
+
+    <th scope="col">Edit/Delete</th>
+</tr>
+</thead>
+<tbody>
+<% ShowAllTypesOfWork.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Work_Name %></td>
+
+
+<td>
+        <a href='/edtTypesOfWork/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deletesTypesOfWork/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

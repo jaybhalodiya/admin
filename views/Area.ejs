@@ -1,0 +1,54 @@
+<% include partials/had %>
+<style>
+.tbl{
+    margin: 70px;
+    border: 1px solid ;
+    margin-left:400px;
+    margin-right:400px;
+}
+.froms{
+    padding:10px;
+
+}
+#tope{
+    margin-left:180px;
+    padding-left:30px;
+    padding-right:30px;
+ }
+
+
+    
+</style>
+<body>
+
+<div class="tbl">
+<div class="froms">
+<form action="/Area" method="post" autocomplete="off">
+
+<select class="form-control" name="City_Name">
+<% for(var i=0; i<users.length; i++) { %>
+  <option><%= users[i].City_Name %></option>
+  <% } %>
+</select>
+
+<br />
+<div class="form-group">
+      
+      <input type="text" class="form-control" id="inputCity" placeholder="Enter Area" name="Area_Name">
+    </div>
+
+    <div class="form-group">
+    <label for="validationCustom05">Pincode</label>
+    <input type="text" class="form-control" id="validationCustom05" placeholder="Pincode" required name="Pincode">
+    
+  </div>
+
+    <button type="submit" class="btn btn-primary" id="tope">Add</button>
+<a class="btn btn-primary" href="ShowAllArea"> Display All Area</a>
+</form>
+  </div>
+  </div>
+  
+  
+  <% include partials/footer %>
+</body>

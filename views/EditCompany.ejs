@@ -1,0 +1,52 @@
+<% include partials/had %>
+<style>
+    .mrg{
+       margin-left:400px;
+       margin-right:400px;
+        margin-top:80px;
+        margin-bottom:40px;
+
+  border: 1px solid;
+    }
+    .form-grou{
+        padding:10px;
+    }
+    #btncnt{
+        margin-left:180px;
+        
+    }
+</style>
+<body>
+<div class="mrg">
+<form  method="post" autocomplete="off">
+<div class="form-grou">
+
+<div class="form-group">
+  <label for="formGroupExampleInput">Company Name</label>
+  <input type="text" class="form-control" placeholder="First name" name="Company_Name" value="<%= EditCompany.Company_Name %>">
+</div>
+<div class="form-group">
+<label for="inputAddress">Address</label>
+<input type="text" class="form-control" id="inputAddress" placeholder="Enter Address" name="Address" value="<%= EditCompany.Address %>">
+</div>
+
+<div class="from-group">
+<label>Mobile Number</label>
+<input type="text" class="form-control"  placeholder="Mobile Number" name="Mobile" value="<%= EditCompany.Mobile %>">
+</div>
+
+<div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" name="Email_ID" value="<%= EditCompany.Email_ID %>">
+  </div>
+
+  <div class="form-group">
+      <label for="inputCity">Area</label>
+      <input type="text" class="form-control" id="inputCity" placeholder="Enter Area" name="Area" value="<%= EditCompany.Area %>">
+    </div>
+    <button type="submit" class="btn btn-primary" id="btncnt">Update</button>
+   
+</div>
+</form>
+</div>
+</body>

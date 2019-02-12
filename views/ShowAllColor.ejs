@@ -1,0 +1,50 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:200px;
+        margin-right:200px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Color Name</th>
+  
+
+    <th scope="col">Edit/Delete</th>
+    
+</tr>
+</thead>
+<tbody>
+<% ShowAllColor.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Color_Name %></td>
+
+
+<td>
+        <a href='/edtsColor/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deleteColor/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

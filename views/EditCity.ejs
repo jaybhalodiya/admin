@@ -1,0 +1,40 @@
+<% include partials/had %>
+<style>
+.tbl{
+    margin: 70px;
+    border: 1px solid ;
+    margin-left:400px;
+    margin-right:400px;
+}
+.froms{
+    padding:10px;
+
+}
+#tope{
+    margin-left:180px;
+    padding-left:30px;
+    padding-right:30px;
+ }
+
+
+    
+</style>
+<body>
+
+<div class="tbl">
+<div class="froms">
+<form  method="post" autocomplete="off">
+
+
+<br />
+<div class="form-group">
+      
+      <input type="text" class="form-control" id="inputCity" placeholder="Enter City" name="City_Name" value="<%= EditCity.City_Name %>">
+    </div>
+    <button type="submit" class="btn btn-primary" id="tope">Update</button>
+
+</form>
+  </div>
+  </div>
+  
+</body>

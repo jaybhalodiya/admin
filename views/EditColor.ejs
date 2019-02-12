@@ -1,0 +1,27 @@
+<% include partials/had %>
+<style>
+    .frm{
+       margin-left:400px;
+       margin-right:400px;
+       margin-top:60px;
+        border: 1px solid;
+    }
+    .form-group{
+        padding:10px;
+    }
+    #btncen{
+        margin-left:180px;
+    }
+</style>
+<body>
+<div class="frm">
+<form  method="post" autocomplete="off">
+<div class="form-group">
+  <label for="formGroupExampleInput">Color Name</label>
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Color" name="Color_Name" value="<%= EditColor.Color_Name %>">
+</div>
+<button type="submit" class="btn btn-primary" id="btncen">Update</button>
+
+</form>
+</div>
+</body>

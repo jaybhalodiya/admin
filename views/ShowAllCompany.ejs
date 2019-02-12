@@ -1,0 +1,57 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:50px;
+        margin-right:50px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Company Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Mobile Number</th>
+    <th scope="col">Email ID</th>
+    <th scope="col">Area</th>
+    
+
+    <th scope="col">Edit/Delete</th>
+    
+</tr>
+</thead>
+<tbody>
+<% ShowAllCompany.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Company_Name %></td>
+<td> <%= demo.Address %></td>
+<td> <%= demo.Mobile %></td>
+<td> <%= demo.Email_ID %></td>
+<td> <%= demo.Area %></td>
+
+<td>
+        <a href='/edtsCompany/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deleteCompany/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+

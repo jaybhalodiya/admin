@@ -1,0 +1,137 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<style>
+body {
+  font-family: "Lato", sans-serif;
+  transition: background-color .5s;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.container-fluid{
+  background-color:#696969;
+  margin-top:0px;
+  margin-bottom:0px;
+}
+
+h4.b{
+  text-align:right;
+  float:right;
+  padding-right:10px; 
+  color:white;
+}
+
+h6.c{
+  margin-left:600px;
+  margin-top:550px;
+  color: blue;
+
+}
+.cnt{
+  background-color:#696969;
+}
+</style>
+</head>
+
+  <body>
+
+    <div class="container-fluid"> 
+    
+    <h4 class="b">  <br />Aarav Designer Boutique</h4>
+       <div id="mySidenav" class="sidenav">
+           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+           <a href="State">State</a>
+           <a href="City">City</a>
+           <a href="Area">Area</a>
+           <a href="Company">Company</a>
+           <a href="Supplier">Supplier</a>
+           <a href="Brand">Brand</a>
+           <a href="Size">Size</a>
+           <a href="Category">Category</a>
+           <a href="Color">Color</a>
+           <a href="Offer">Offer</a>
+           <a href="Product">Product</a>
+           <a href="TypesOfWork">Types Of Works</a>
+           <a href="Purchase">Purchase</a>
+           <a href="Rating">Rating</a>
+           <a href="Feedback">Feedback</a>
+           <a href="Wishlist">Wishlist</a>
+           <a href="Tailor">Tailor</a>
+           <a href="Stitching">Stitching</a>
+           <a href="CustomizeOrder">Customize Order</a>
+           <a href="Sales">Sales</a>
+          
+
+       </div>
+    <div id="main">  
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    </div>  
+    </div>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+  document.body.style.backgroundColor = "white";
+}
+</script>
+   
+  </body>
+</html>

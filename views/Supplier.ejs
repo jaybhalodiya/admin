@@ -1,0 +1,75 @@
+<% include partials/had %>
+<style>
+    .frmcnt{
+        margin-top:50px;
+      margin-left:300px;
+      margin-right:300px;
+        border: 1px solid;
+    }
+    .sp{
+        padding:10px;
+    }
+    .btnctn{
+        margin-left:250px;
+        margin-top:10px;
+       
+    }
+</style>
+<body>
+
+<div class="frmcnt">
+<form action="/Supplier" method="post" autocomplete="off">
+<div class="sp">
+
+<div class="form-group">
+  <label for="formGroupExampleInput">Supplier Name</label>
+  <input type="text" class="form-control" placeholder="First name" name="Supplier_Name">
+</div>
+
+  <div class="from-group">
+<label>Mobile Number</label>
+<input type="text" class="form-control"  placeholder="Mobile Number" name="Mobile">
+</div>
+
+<div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email ID" name="Email_ID">
+  </div>
+
+
+ 
+  <select class="form-control" name="City_Name" id="city">
+  <% for(var i=0; i<users.length;i++) { %>
+    <option value="<%= users[i].City_Name%>"><%= users[i].City_Name %></option>
+    <% } %>
+  </select>
+  
+<br />
+
+  <select class="form-control" name="Area_Name" id="area">
+  </select>
+
+
+  
+<div class="btnctn">
+<button type="submit" class="btn btn-primary" >Add</button>
+<a class="btn btn-primary" href="ShowAllSupplier"> Display All Supplier</a>
+</div>
+</div>
+  </form>
+  </div>
+ <script type="text/javascript">
+    $('#city').change(function(e){
+      console.log("change",e.target.value);
+      $.get('/getarea?city_name='+e.target.value,function(res){
+      console.log(res);
+      $("#area").html("");
+      for(var i=0; i< res.area.length;i++){
+        let element = res.area[i];
+        $("#area").append("<option>"+element.Area_Name+"</option>");
+      }
+    })
+    })
+    
+ </script>
+</body>

@@ -1,0 +1,50 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:200px;
+        margin-right:200px;
+        margin-top:50px;
+    }
+</style>
+
+   <br />
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">State Name</th>
+    <th scope="col">City Name</th>
+
+    <th scope="col">Edit/Delete</th>
+    
+</tr>
+</thead>
+<tbody>
+<% ShowAllCity.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.State_Name %></td>
+<td> <%= demo.City_Name %></td>
+
+<td>
+        <a href='/edt/<%= demo._id %>'>Edit</a>  |
+
+        <a href='/deletes/<%= demo._id %>'>Delete</a>
+</td>
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+
