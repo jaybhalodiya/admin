@@ -18,16 +18,16 @@ border: 1px solid;
 </style>
 <body>
 <div class="tore">
-<form action="/Purchase" method="post" autocomplete="off">
+<form  method="post" autocomplete="off">
 <div class="form-group">
 <label for="example-date-input">Purchase Date</label>
 
-  <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="Purchase_Date">
+  <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="Purchase_Date" value="<%= EditPurchase.Purchase_Date %>">
 
 </div>
 <div class="frm">
  
-<select class="form-control" name="Supplier_Name">
+<select class="form-control" name="Supplier_Name" value="<%= EditPurchase.Supplier_Name %>">
 <% for(var i=0; i<users.length;i++) { %>
   <option><%= users[i].Supplier_Name %></option>
   <% } %>
@@ -35,7 +35,7 @@ border: 1px solid;
 
 <br />
 
-<select class="form-control" name="Product_Name">
+<select class="form-control" name="Product_Name" value="<%= EditPurchase.Product_Name %>">
 <% for(var i=0; i<arusers.length;i++) { %>
   <option><%= arusers[i].Product_Name %></option>
   <% } %>
@@ -46,12 +46,12 @@ border: 1px solid;
 
   <div class="form-group">
 <label for="formGroupExampleInput">Qty</label>
-<input type="number" class="form-control"  placeholder="Qty" name="QTY" id="qnt">
+<input type="number" class="form-control"  placeholder="Qty" name="QTY" id="qnt" value="<%= EditPurchase.QTY %>">
 </div>
 
 <div class="form-group">
 <label for="formGroupExampleInput">Price</label>
-<input type="text" required class="form-control" placeholder="Price" name="Price"   id="price">
+<input type="text" required class="form-control" placeholder="Price" name="Price"   id="price" value="<%= EditPurchase.Price %>">
 </div>
 
 
@@ -59,21 +59,21 @@ border: 1px solid;
 
 <div class="form-group">
 <label for="formGroupExampleInput">CGST 2.5%</label>
-<input type="text" required class="form-control" id="cast" placeholder="CGST" name="CGST" readonly  >
+<input type="text" required class="form-control" id="cast" placeholder="CGST" name="CGST" readonly  value="<%= EditPurchase.CGST %>" >
 </div>
 
 <div class="form-group">
 <label for="formGroupExampleInput">SGST 2.5%</label>
-<input type="text" required class="form-control" id="sgst" placeholder="SGST" name="SGST" readonly>
+<input type="text" required class="form-control" id="sgst" placeholder="SGST" name="SGST" readonly value="<%= EditPurchase.SGST %>">
 </div>  
 
 <div class="form-group">
 <label for="formGroupExampleInput">Total</label>
-<input type="text" required class="form-control"  id="amount"  placeholder="Total" name="Total" readonly  >
+<input type="text" required class="form-control"  id="amount"  placeholder="Total" name="Total" readonly value="<%= EditPurchase.Total %>" >
 </div>
 
-<button type="submit" class="btn btn-primary" id="btnc">Add</button>
-<a class="btn btn-primary" href="ShowAllPurchase"> Display All Purchase</a>
+<button type="submit" class="btn btn-primary" id="btnc">Update</button>
+
 
 
 </form>

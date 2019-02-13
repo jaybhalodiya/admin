@@ -40,7 +40,49 @@ router.get('/exporttocsv', function(req, res, next) {
     });
 });
 
+/**supplier report */
 
+router.get('/SupplierReport', function(req, res, next) {
+    var filename = "Supplier.csv";
+    var dataArray;
+    Sup.find().lean().exec({}, function(err, products) {
+        if (err) res.send(err);
+
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename=' + filename);
+        res.csv(products, true);
+    });
+});
+
+
+/** Purchase report */
+router.get('/PurchaseReport', function(req, res, next) {
+    var filename = "Purchase.csv";
+    var dataArray;
+    Pur.find().lean().exec({}, function(err, products) {
+        if (err) res.send(err);
+
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename=' + filename);
+        res.csv(products, true);
+    });
+});
+
+/** tailor report */
+router.get('/TailorReport', function(req, res, next) {
+    var filename = "Tailor.csv";
+    var dataArray;
+    Tler.find().lean().exec({}, function(err, products) {
+        if (err) res.send(err);
+
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename=' + filename);
+        res.csv(products, true);
+    });
+});
 
 
 /** */
@@ -1163,9 +1205,97 @@ router.post('/PurchaseReturn/:id', function(req, res) {
 });
 
 
+// edit purchase*
+
+router.get('/EditPurchase/:id', function(req, res) {
+    console.log(req.params.id);
+    Pur.findById(req.params.id, function(err, user) {
+        if (err) {
+            console.log(err);
+        } else {
+            Sup.find(function(err, users) {
+                if (err) { console.log(err); } else {
+
+                    Prod.find(function(err, arusers) {
+                        if (err) { console.log(err); } else {
+
+
+                            console.log(user);
+
+                            res.render('EditPurchase', { EditPurchase: user, users: users, arusers: arusers });
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+
+router.post('/EditPurchase/:id', function(req, res) {
+    Pur.findByIdAndUpdate(req.params.id, req.body, function(err) {
+        if (err) {
+
+            res.redirect('edits/' + req.params.id);
+        } else {
+
+            res.redirect('/ShowAllPurchase');
+        }
+    });
+});
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+router.post('/PurchaseReturn', function(req, res, next) {
+    console.log(req.body);
+
+    Pur.findById(req.params.id, function(err, user) {
+        if (err) {
+            console.log(err);
+        } else {
+
+            console.log(user);
+
+            res.render('PurchaseReturn', { PurchaseReturn: user });
+        }
+    });
+    // const pro = new Pur({
+    //     id: 0,
+    //     Return_QTY: req.body.Return_QTY,
+    //     Stock: req.body.Stock,
+    //     Return_Description: req.body.Return_Description,
+
+    // });
+    // pro.save().then(() => {
+    //     console.log("insert success");
+    //     res.redirect('/ShowAllPurchaseReturn');
+
+    // }).catch(() => {
+    //     console.log("error");
+    // });
+});
 
 
 

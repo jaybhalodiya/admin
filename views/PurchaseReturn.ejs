@@ -18,7 +18,8 @@ border: 1px solid;
 </style>
 <body>
 <div class="tore">
-<form method="post" autocomplete="off">
+<form method="post" autocomplete="off" action="/PurchaseReturn">
+<input type="hidden" name="purchase_id" value="<%= PurchaseReturn.id%>">
 <div class="form-group">
 <label for="example-date-input">Purchase Date</label>
 
@@ -27,7 +28,7 @@ border: 1px solid;
 </div>
 <div class="frm">
  
-<select class="form-control" name="Supplier_Name" value="<%= PurchaseReturn.Supplier_Name %>">
+<select class="form-control" name="Supplier_Name" readonly value="<%= PurchaseReturn.Supplier_Name %>">
 <% for(var i=0; i<users.length;i++) { %>
   <option><%= users[i].Supplier_Name %></option>
   <% } %>
@@ -35,7 +36,7 @@ border: 1px solid;
 
 <br />
 
-<select class="form-control" name="Product_Name" value="<%= PurchaseReturn.Product_Name %>">
+<select class="form-control" name="Product_Name" readonly value="<%= PurchaseReturn.Product_Name %>">
 <% for(var i=0; i<arusers.length;i++) { %>
   <option><%= arusers[i].Product_Name %></option>
   <% } %>
@@ -51,14 +52,20 @@ border: 1px solid;
 
 <div class="form-group">
 <label for="formGroupExampleInput">Return Qty</label>
-<input type="number" class="form-control"  placeholder="Return Qty" name="Return_QTY" id="qnt" >
+<input type="number" class="form-control"  placeholder="Return Qty" name="Return_QTY" id="rt" >
+</div>
+
+
+<div class="form-group">
+<label for="formGroupExampleInput">Stock</label>
+<input type="number" class="form-control"  placeholder="Stock" name="Stock" id="Stock" >
 </div>
 
 
 
 <div class="form-group">
   <label for="exampleFormControlTextarea2">Return Description</label>
-  <input class="form-control " id="exampleFormControlTextarea2" rows="3" name=" Return_Description">
+  <input class="form-control " id="exampleFormControlTextarea2" rows="3" name="Return_Description" >
 </div>
 
 
@@ -85,20 +92,24 @@ border: 1px solid;
 <input type="text" required class="form-control"  id="amount"  placeholder="Total" name="Total" readonly value="<%= PurchaseReturn.Total %>" >
 </div>
 
-<button type="submit" class="btn btn-primary" id="btnc">Add</button>
+<button type="submit" class="btn btn-primary" id="btnc">Return Product</button>
 
 
 
 </form>
 
+
+
+
+
 <script type="text/javascript">
 var qunt = 0;
+var rt =0;
 var price = 0;
 var total = 0;
 var amount=0;
 var cast=0;
 var sgst=0;
-
 $(document).ready(function(){
   $('#qnt').keyup(function(){
     qunt = this.value;
@@ -111,6 +122,7 @@ $(document).ready(function(){
     $('#amount').val(amount);   
   $('#cast').val(total);
   $('#sgst').val(total);
+//   $('#Stock').val(qunt-rt);
 });
 $('#price').keyup(function(){
   price = this.value;
@@ -146,6 +158,13 @@ $('#price').keyup(function(){
 
   });
   
+$('#rt').keyup(function(){
+    qnt = $('#qnt').val();
+    console.log(qnt);
+    rt = this.value;
+    $('#Stock').val(qnt-rt);
+
+});
 
 
 
@@ -155,4 +174,5 @@ $('#price').keyup(function(){
 });
 </script>
 </div>
+
 </body>
