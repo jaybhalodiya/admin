@@ -17,6 +17,7 @@ var Typwrk = require('../models/TypesOfWork.models.js');
 var Prod = require('../models/Product.models.js');
 var Tler = require('../models/Tailor.models.js');
 var Pur = require('../models/Purchase.models.js');
+var PurRet = require('../models/PurchaseReturn.models.js');
 /* GET home page. */
 
 
@@ -1231,7 +1232,6 @@ router.get('/EditPurchase/:id', function(req, res) {
     });
 });
 
-
 router.post('/EditPurchase/:id', function(req, res) {
     Pur.findByIdAndUpdate(req.params.id, req.body, function(err) {
         if (err) {
@@ -1244,30 +1244,7 @@ router.post('/EditPurchase/:id', function(req, res) {
     });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/** */
 router.post('/PurchaseReturn', function(req, res, next) {
     console.log(req.body);
 
@@ -1281,25 +1258,8 @@ router.post('/PurchaseReturn', function(req, res, next) {
             res.render('PurchaseReturn', { PurchaseReturn: user });
         }
     });
-    // const pro = new Pur({
-    //     id: 0,
-    //     Return_QTY: req.body.Return_QTY,
-    //     Stock: req.body.Stock,
-    //     Return_Description: req.body.Return_Description,
 
-    // });
-    // pro.save().then(() => {
-    //     console.log("insert success");
-    //     res.redirect('/ShowAllPurchaseReturn');
-
-    // }).catch(() => {
-    //     console.log("error");
-    // });
 });
-
-
-
-
 
 module.exports = router;
 
