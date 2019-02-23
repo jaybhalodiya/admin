@@ -14,6 +14,17 @@
         margin-top:10px;
        
     }
+    .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #808080;
+  color: white;
+  text-align: center;
+  margin-bottom:5px;
+
+}
 </style>
 <body>
 
@@ -23,7 +34,7 @@
 
 <div class="form-group">
   <label for="formGroupExampleInput">Supplier Name</label>
-  <input type="text" class="form-control" placeholder="First name" name="Supplier_Name">
+  <input type="text" class="form-control" placeholder="First name" name="Supplier_Name" required>
 </div>
 
   <div class="from-group">
@@ -37,7 +48,7 @@
   </div>
 
 
- 
+ <label>City</label>
   <select class="form-control" name="City_Name" id="city">
   <% for(var i=0; i<users.length;i++) { %>
     <option value="<%= users[i].City_Name%>"><%= users[i].City_Name %></option>
@@ -45,7 +56,7 @@
   </select>
   
 <br />
-
+<label>Area</label>
   <select class="form-control" name="Area_Name" id="area">
   </select>
 
@@ -72,5 +83,8 @@
     })
     
  </script>
- 
+ <div class="footer">
+ <p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
+ </div>
+   
 </body>

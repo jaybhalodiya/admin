@@ -14,6 +14,17 @@
         margin-top:10px;
        
     }
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #808080;
+      color: white;
+      text-align: center;
+      margin-bottom:5px;
+    
+    }
 </style>
 <body>
 
@@ -37,7 +48,7 @@
   </div>
 
 
- 
+ <label>City</label>
   <select class="form-control" name="City_Name" value="<%= EditSupplier.City_Name %>">
   <% for(var i=0; i<users.length;i++) { %>
     <option><%= users[i].City_Name %></option>
@@ -45,7 +56,7 @@
   </select>
   
 <br />
-
+<label>Area</label>
   <select class="form-control" name="Area_Name" value="<%= EditSupplier.Area_Name %>">
   <% for(var i=0; i<arusers.length;i++) { %>
     <option><%= arusers[i].Area_Name %></option>
@@ -61,5 +72,7 @@
   </form>
   </div>
 
- 
+  <div class="footer">
+  <p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
+  </div>
 </body>

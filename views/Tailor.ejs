@@ -15,6 +15,17 @@
     #btnc{
         margin-left:200px;
     }
+    .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #808080;
+  color: white;
+  text-align: center;
+  margin-bottom:5px;
+
+}
 </style>
 
 <body>
@@ -22,12 +33,12 @@
 <form  action="/Tailor" method="post" autocomplete="off">
 <div class="form-group">
 <label for="formGroupExampleInput">Tailer Name</label>
-<input type="text" class="form-control" placeholder="First name" name="Tailor_Name">
+<input type="text" class="form-control" placeholder="First name" name="Tailor_Name" required>
 </div>
 
 <div class="form-group">
 <label for="inputAddress">Address</label>
-<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="Address">
+<input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="Address" required>
 </div>
 
 <div class="form-group">
@@ -54,5 +65,8 @@
 
 </form>
 </div>
-
+<div class="footer">
+<p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
+</div>
+  
 </body>

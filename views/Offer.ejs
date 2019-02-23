@@ -15,6 +15,17 @@
     margin-left:180px;
    
 }
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #808080;
+  color: white;
+  text-align: center;
+  margin-bottom:5px;
+
+}
 </style>
 <body>
 
@@ -22,7 +33,7 @@
 <div class="ftm">
   <div class="form-group">
     <label for="formGroupExampleInput">Title</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" name="Title" >
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input" name="Title" required>
   </div>
 
   <div class="form-group">
@@ -34,14 +45,14 @@
   <div class="form-group">
   <label for="example-date-input">Start_Date</label>
  
-    <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="Start_Date">
+    <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="Start_Date" required>
  
 </div>
 
 <div class="form-group">
   <label for="example-date-input">End_Date</label>
  
-    <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="End_Date">
+    <input class="form-control" type="date" placeholder="2011-08-19" id="example-date-input" name="End_Date" required>
  
 </div>
 
@@ -55,4 +66,7 @@
 <br />
   </form>
  
+<div class="footer">
+<p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
+</div>
 </body>
