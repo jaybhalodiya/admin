@@ -4,6 +4,7 @@
 margin-left:400px;
 margin-right:400px;
 margin-top:60px;
+margin-bottom:50px;
 border: 1px solid;
 }
 .form-group{
@@ -29,6 +30,11 @@ border: 1px solid;
 </style>
 <body>
 <div class="tore">
+<% if(success == "true"){%>
+<div class="alert alert-success">
+<strong>Success!</strong> Purchase Return Successfully.
+</div>
+<%}%>
 <form method="post" autocomplete="off" action="/PurchaseReturn">
  <input type="hidden" name="purchase_id" value="<%= PurchaseReturn.id%>"> 
 <div class="form-group">

@@ -17,7 +17,7 @@ var Typwrk = require('../models/TypesOfWork.models.js');
 var Prod = require('../models/Product.models.js');
 var Tler = require('../models/Tailor.models.js');
 var Pur = require('../models/Purchase.models.js');
-var PurRet = require('../models/PurchaseReturn.models.js');
+var PurReturn = require('../models/PurchaseReturn.models.js');
 /* GET home page. */
 
 
@@ -100,7 +100,9 @@ router.get('/Tailor', function(req, res, next) {
         if (err) {
             console.log(err);
         } else {
-            res.render('Tailor', { users: users });
+            res.render('Tailor', {
+                users: users
+            });
             console.log(users);
         }
     });
@@ -131,7 +133,9 @@ router.post('/Tailor', function(req, res, next) {
 router.get('/ShowAllTailor', function(req, res, next) {
     Tler.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllTailor', { ShowAllTailor: data });
+        res.render('ShowAllTailor', {
+            ShowAllTailor: data
+        });
     });
 });
 
@@ -153,10 +157,15 @@ router.get('/edtTailor/:id', function(req, res) {
             console.log(err);
         } else {
             Cmp.find(function(err, users) {
-                if (err) { console.log(err); } else {
+                if (err) {
+                    console.log(err);
+                } else {
                     console.log(user);
 
-                    res.render('EditTailor', { EditTailor: user, users: users });
+                    res.render('EditTailor', {
+                        EditTailor: user,
+                        users: users
+                    });
                 }
             });
         }
@@ -200,7 +209,9 @@ router.post('/TypesOfWork', function(req, res, next) {
 router.get('/ShowAllTypesOfWork', function(req, res, next) {
     Typwrk.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllTypesOfWork', { ShowAllTypesOfWork: data });
+        res.render('ShowAllTypesOfWork', {
+            ShowAllTypesOfWork: data
+        });
     });
 });
 router.get('/deletesTypesOfWork/:id', function(req, res) {
@@ -221,7 +232,9 @@ router.get('/edtTypesOfWork/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditTypesOfWork', { EditTypesOfWork: user });
+            res.render('EditTypesOfWork', {
+                EditTypesOfWork: user
+            });
         }
     });
 });
@@ -246,7 +259,9 @@ router.get('/City', function(req, res, next) {
         if (err) {
             console.log(err);
         } else {
-            res.render('City', { users: users });
+            res.render('City', {
+                users: users
+            });
             console.log(users);
         }
     });
@@ -274,7 +289,9 @@ router.post('/City', function(req, res, next) {
 router.get('/ShowAllCity', function(req, res, next) {
     Cty.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllCity', { ShowAllCity: data });
+        res.render('ShowAllCity', {
+            ShowAllCity: data
+        });
     });
 });
 
@@ -296,7 +313,9 @@ router.get('/edt/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditCity', { EditCity: user });
+            res.render('EditCity', {
+                EditCity: user
+            });
         }
     });
 });
@@ -334,7 +353,9 @@ router.post('/State', function(req, res, next) {
 router.get('/ShowAllState', function(req, res, next) {
     Sta.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllState', { ShowAllState: data });
+        res.render('ShowAllState', {
+            ShowAllState: data
+        });
     });
 });
 /**state delete */
@@ -357,7 +378,9 @@ router.get('/edits/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditState', { EditState: user });
+            res.render('EditState', {
+                EditState: user
+            });
         }
     });
 });
@@ -377,7 +400,9 @@ router.post('/edits/:id', function(req, res) {
 
 
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+    res.render('index', {
+        title: 'Express'
+    });
 });
 
 router.get('/State', function(req, res, next) {
@@ -385,15 +410,21 @@ router.get('/State', function(req, res, next) {
 });
 
 router.get('/login', function(req, res, next) {
-    res.render('login.ejs', { message: req.flash('loginMessage') });
+    res.render('login.ejs', {
+        message: req.flash('loginMessage')
+    });
 });
 
 router.get('/signup', function(req, res) {
-    res.render('signup.ejs', { message: req.flash('signupMessage') });
+    res.render('signup.ejs', {
+        message: req.flash('signupMessage')
+    });
 });
 
 router.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile.ejs', { user: req.user });
+    res.render('profile.ejs', {
+        user: req.user
+    });
 });
 
 router.get('/logout', function(req, res) {
@@ -408,7 +439,9 @@ router.get('/Area', function(req, res, next) {
         if (err) {
             console.log(err);
         } else {
-            res.render('Area', { users: users });
+            res.render('Area', {
+                users: users
+            });
             console.log(users);
         }
     });
@@ -436,7 +469,9 @@ router.post('/Area', function(req, res, next) {
 router.get('/ShowAllArea', function(req, res, next) {
     Ara.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllArea', { ShowAllArea: data });
+        res.render('ShowAllArea', {
+            ShowAllArea: data
+        });
     });
 });
 
@@ -458,7 +493,9 @@ router.get('/edts/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditArea', { EditArea: user });
+            res.render('EditArea', {
+                EditArea: user
+            });
         }
     });
 });
@@ -506,7 +543,9 @@ router.post('/Company', function(req, res, next) {
 router.get('/ShowAllCompany', function(req, res, next) {
     Cmp.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllCompany', { ShowAllCompany: data });
+        res.render('ShowAllCompany', {
+            ShowAllCompany: data
+        });
     });
 });
 
@@ -528,7 +567,9 @@ router.get('/edtsCompany/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditCompany', { EditCompany: user });
+            res.render('EditCompany', {
+                EditCompany: user
+            });
         }
     });
 });
@@ -557,7 +598,10 @@ router.get('/Supplier', function(req, res, next) {
                 if (err) {
                     console.log(err);
                 } else {
-                    return res.render('Supplier', { users: users, arusers: arusers });
+                    return res.render('Supplier', {
+                        users: users,
+                        arusers: arusers
+                    });
                     console.log(users);
                 }
             });
@@ -592,7 +636,9 @@ router.post('/Supplier', function(req, res, next) {
 
 
 router.get('/getarea', function(req, res, next) {
-    Ara.find({ City_Name: req.query.city_name }, function(err, data) {
+    Ara.find({
+        City_Name: req.query.city_name
+    }, function(err, data) {
         res.json({
             area: data
         })
@@ -603,7 +649,9 @@ router.get('/getarea', function(req, res, next) {
 router.get('/ShowAllSupplier', function(req, res, next) {
     Sup.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllSupplier', { ShowAllSupplier: data });
+        res.render('ShowAllSupplier', {
+            ShowAllSupplier: data
+        });
     });
 });
 router.get('/deleteSupplier/:id', function(req, res) {
@@ -629,7 +677,11 @@ router.get('/edtsSupplier/:id', function(req, res) {
                         if (err) {
                             console.log(err);
                         } else {
-                            return res.render('EditSupplier', { users: users, arusers: arusers, EditSupplier: user });
+                            return res.render('EditSupplier', {
+                                users: users,
+                                arusers: arusers,
+                                EditSupplier: user
+                            });
                             console.log(users);
                         }
                     });
@@ -677,7 +729,9 @@ router.post('/Brand', function(req, res, next) {
 router.get('/ShowAllBrand', function(req, res, next) {
     Bnd.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllBrand', { ShowAllBrand: data });
+        res.render('ShowAllBrand', {
+            ShowAllBrand: data
+        });
     });
 });
 
@@ -699,7 +753,9 @@ router.get('/edtsBrand/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditBrand', { EditBrand: user });
+            res.render('EditBrand', {
+                EditBrand: user
+            });
         }
     });
 });
@@ -740,7 +796,9 @@ router.post('/Size', function(req, res, next) {
 router.get('/ShowAllSize', function(req, res, next) {
     Siz.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllSize', { ShowAllSize: data });
+        res.render('ShowAllSize', {
+            ShowAllSize: data
+        });
     });
 });
 router.get('/deleteSize/:id', function(req, res) {
@@ -761,7 +819,9 @@ router.get('/edtsSize/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditSize', { EditSize: user });
+            res.render('EditSize', {
+                EditSize: user
+            });
         }
     });
 });
@@ -803,7 +863,9 @@ router.post('/Category', function(req, res, next) {
 router.get('/ShowAllCategory', function(req, res, next) {
     Cteg.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllCategory', { ShowAllCategory: data });
+        res.render('ShowAllCategory', {
+            ShowAllCategory: data
+        });
     });
 });
 
@@ -826,7 +888,9 @@ router.get('/edtsCategory/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditCategory', { EditCategory: user });
+            res.render('EditCategory', {
+                EditCategory: user
+            });
         }
     });
 });
@@ -867,7 +931,9 @@ router.post('/Color', function(req, res, next) {
 router.get('/ShowAllColor', function(req, res, next) {
     Colr.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllColor', { ShowAllColor: data });
+        res.render('ShowAllColor', {
+            ShowAllColor: data
+        });
     });
 });
 
@@ -890,7 +956,9 @@ router.get('/edtsColor/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditColor', { EditColor: user });
+            res.render('EditColor', {
+                EditColor: user
+            });
         }
     });
 });
@@ -937,7 +1005,10 @@ router.get('/ShowAllOffer', function(req, res, next) {
     var moment = require('moment');
     Off.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllOffer', { ShowAllOffer: data, moment: moment });
+        res.render('ShowAllOffer', {
+            ShowAllOffer: data,
+            moment: moment
+        });
     });
 });
 router.get('/deleteOffer/:id', function(req, res) {
@@ -957,7 +1028,9 @@ router.get('/edtsOffer/:id', function(req, res) {
         } else {
             console.log(user);
 
-            res.render('EditOffer', { EditOffer: user });
+            res.render('EditOffer', {
+                EditOffer: user
+            });
         }
     });
 });
@@ -984,14 +1057,26 @@ router.get('/Product', function(req, res, next) {
                     console.log(err);
                 } else {
                     Siz.find(function(err, anuser) {
-                        if (err) { console.log(err); } else {
+                        if (err) {
+                            console.log(err);
+                        } else {
                             Colr.find(function(err, cole) {
-                                if (err) { console.log(err); } else {
+                                if (err) {
+                                    console.log(err);
+                                } else {
 
                                     Off.find(function(err, ofe) {
-                                        if (err) { console.log(err); } else {
+                                        if (err) {
+                                            console.log(err);
+                                        } else {
 
-                                            res.render('Product', { users: users, user: user, anuser: anuser, cole: cole, ofe: ofe });
+                                            res.render('Product', {
+                                                users: users,
+                                                user: user,
+                                                anuser: anuser,
+                                                cole: cole,
+                                                ofe: ofe
+                                            });
                                             console.log(users);
                                         }
                                     });
@@ -1015,7 +1100,9 @@ var storage = multer.diskStorage({
         callback(null, Date.now() + file.originalname);
     }
 })
-var upload = multer({ storage })
+var upload = multer({
+    storage
+})
 
 router.post('/Product', upload.any(), function(req, res, next) {
     console.log('files', req.files[0].filename);
@@ -1046,7 +1133,9 @@ router.post('/Product', upload.any(), function(req, res, next) {
 router.get('/ShowAllProduct', function(req, res, next) {
     Prod.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllProduct', { ShowAllProduct: data });
+        res.render('ShowAllProduct', {
+            ShowAllProduct: data
+        });
     });
 });
 
@@ -1075,14 +1164,27 @@ router.get('/edtsProduct/:id', function(req, res) {
                             console.log(err);
                         } else {
                             Siz.find(function(err, anuser) {
-                                if (err) { console.log(err); } else {
+                                if (err) {
+                                    console.log(err);
+                                } else {
 
                                     Colr.find(function(err, cole) {
-                                        if (err) { console.log(err); } else {
+                                        if (err) {
+                                            console.log(err);
+                                        } else {
 
                                             Off.find(function(err, ofe) {
-                                                if (err) { console.log(err); } else {
-                                                    return res.render('EditProduct', { EditProduct: use, users: users, user: user, anuser: anuser, cole: cole, ofe: ofe });
+                                                if (err) {
+                                                    console.log(err);
+                                                } else {
+                                                    return res.render('EditProduct', {
+                                                        EditProduct: use,
+                                                        users: users,
+                                                        user: user,
+                                                        anuser: anuser,
+                                                        cole: cole,
+                                                        ofe: ofe
+                                                    });
                                                     console.log(users);
                                                 }
                                             });
@@ -1123,7 +1225,10 @@ router.get('/Purchase', function(req, res, next) {
                 if (err) {
                     console.log(err);
                 } else {
-                    return res.render('Purchase', { users: users, arusers: arusers });
+                    return res.render('Purchase', {
+                        users: users,
+                        arusers: arusers
+                    });
                     console.log(users);
                 }
             });
@@ -1164,7 +1269,10 @@ router.get('/ShowAllPurchase', function(req, res, next) {
     var moment = require('moment');
     Pur.find({}, function(err, data) {
         console.log(data);
-        res.render('ShowAllPurchase', { ShowAllPurchase: data, moment: moment });
+        res.render('ShowAllPurchase', {
+            ShowAllPurchase: data,
+            moment: moment
+        });
     });
 });
 
@@ -1175,14 +1283,23 @@ router.get('/PurchaseReturn/:id', function(req, res) {
             console.log(err);
         } else {
             Sup.find(function(err, users) {
-                if (err) { console.log(err); } else {
+                if (err) {
+                    console.log(err);
+                } else {
 
                     Prod.find(function(err, arusers) {
-                        if (err) { console.log(err); } else {
+                        if (err) {
+                            console.log(err);
+                        } else {
 
                             console.log(user);
 
-                            res.render('PurchaseReturn', { PurchaseReturn: user, users: users, arusers: arusers });
+                            res.render('PurchaseReturn', {
+                                PurchaseReturn: user,
+                                users: users,
+                                arusers: arusers,
+                                success: req.query.success
+                            });
                         }
                     });
                 }
@@ -1215,15 +1332,23 @@ router.get('/EditPurchase/:id', function(req, res) {
             console.log(err);
         } else {
             Sup.find(function(err, users) {
-                if (err) { console.log(err); } else {
+                if (err) {
+                    console.log(err);
+                } else {
 
                     Prod.find(function(err, arusers) {
-                        if (err) { console.log(err); } else {
+                        if (err) {
+                            console.log(err);
+                        } else {
 
 
                             console.log(user);
 
-                            res.render('EditPurchase', { EditPurchase: user, users: users, arusers: arusers });
+                            res.render('EditPurchase', {
+                                EditPurchase: user,
+                                users: users,
+                                arusers: arusers
+                            });
                         }
                     });
                 }
@@ -1245,21 +1370,77 @@ router.post('/EditPurchase/:id', function(req, res) {
 });
 
 /** */
+// router.post('/PurchaseReturn', function(req, res, next) {
+//     console.log(req.body);
+
+//     Pur.findById(req.params.id, function(err, user) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+
+//             console.log(user);
+
+//             res.render('PurchaseReturn', {
+//                 PurchaseReturn: user
+//             });
+//         }
+//     });
+
+// });
+
+
+
+
+
+
 router.post('/PurchaseReturn', function(req, res, next) {
     console.log(req.body);
-
-    Pur.findById(req.params.id, function(err, user) {
-        if (err) {
-            console.log(err);
-        } else {
-
-            console.log(user);
-
-            res.render('PurchaseReturn', { PurchaseReturn: user });
-        }
+    const pro = new PurReturn({
+        id: 0,
+        Product_Name: req.body.Product_Name,
+        Return_QTY: req.body.Return_QTY,
+        Stock: req.body.Stock,
+        Return_Description: req.body.Return_Description
     });
+    console.log(pro);
+    pro.save().then(() => {
+        console.log("insert success");
+        res.redirect('/PurchaseReturn/' + req.body.purchase_id + "?success=true");
 
+
+    }).catch(() => {
+        console.log("error");
+    });
 });
+
+
+
+router.get('/ShowAllPurchaseReturnDetails', function(req, res, next) {
+    PurReturn.find({}, function(err, data) {
+        console.log(data);
+        res.render('ShowAllPurchaseReturnDetails', {
+            ShowAllPurchaseReturnDetails: data
+        });
+    });
+});
+
+
+
+router.get('/PurchaseReturnReport', function(req, res, next) {
+    var filename = "PurchaseReturn.csv";
+    var dataArray;
+    PurReturn.find().lean().exec({}, function(err, PurchaseReturn) {
+        if (err) res.send(err);
+
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename=' + filename);
+        res.csv(PurchaseReturn, true);
+    });
+});
+
+
+
 
 module.exports = router;
 
@@ -1281,4 +1462,4 @@ router.post('/login', passport.authenticate('local-login', {
     failureFlash: true,
 }));
 
-module.exports = router;
+module.exports = router
