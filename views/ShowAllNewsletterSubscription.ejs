@@ -1,0 +1,67 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:50px;
+        margin-right:50px;
+        margin-top:50px;
+    }
+    .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #808080;
+  color: white;
+  text-align: center;
+  margin-bottom:5px;
+
+}
+</style>
+
+   <br />
+  
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Email ID</th>
+    
+   
+    
+
+  
+    
+</tr>
+</thead>
+<tbody>
+<% ShowAllNewsletterSubscription.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Email_ID %></td>
+
+
+
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+<div class="footer">
+<p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
+</div>
+  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>

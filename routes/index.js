@@ -18,6 +18,8 @@ var Prod = require('../models/Product.models.js');
 var Tler = require('../models/Tailor.models.js');
 var Pur = require('../models/Purchase.models.js');
 var PurReturn = require('../models/PurchaseReturn.models.js');
+var Cont = require('../models/ContactUs.models.js');
+var Nw = require('../models/NewsletterSubscription.models.js');
 /* GET home page. */
 
 
@@ -1440,6 +1442,26 @@ router.get('/PurchaseReturnReport', function(req, res, next) {
 });
 
 
+
+router.get('/ShowAllContactUs', function(req, res, next) {
+    Cont.find({}, function(err, data) {
+        console.log(data);
+        res.render('ShowAllContactUs', {
+            ShowAllContactUs: data
+        });
+    });
+});
+
+
+
+router.get('/ShowAllNewsletterSubscription', function(req, res, next) {
+    Nw.find({}, function(err, data) {
+        console.log(data);
+        res.render('ShowAllNewsletterSubscription', {
+            ShowAllNewsletterSubscription: data
+        });
+    });
+});
 
 
 module.exports = router;
