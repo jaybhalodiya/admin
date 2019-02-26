@@ -8,8 +8,8 @@ const dbConfig = require('./database.config.js');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
-var flash = require('connect-flash');
 var session = require('express-session');
+var flash = require('connect-flash');
 var mongodb = require('mongodb');
 
 
@@ -27,10 +27,14 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
 
 mongoose.connect(dbConfig.url).then(() => {
@@ -42,7 +46,9 @@ mongoose.connect(dbConfig.url).then(() => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use(session({ secret: 'shhsecret' }));
+app.use(session({
+    secret: 'shhsecret'
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
