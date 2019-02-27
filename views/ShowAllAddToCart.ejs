@@ -1,0 +1,75 @@
+
+
+<% include partials/had %>
+
+<style>
+    .tbl{
+        margin-left:40px;
+        margin-right:40px;
+        margin-top:50px;
+    }
+    .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #808080;
+  color: white;
+  text-align: center;
+  margin-bottom:5px;
+
+}
+</style>
+
+   <br />
+  
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Product Name</th>
+    <th scope="col">QTY</th>
+    <th scope="col">Price</th>
+      
+    <th scope="col">Image</th>
+    <th scope="col">user id</th>
+
+</tr>
+</thead>
+<tbody>
+<% ShowAllAddToCart.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Product_Name %></td>
+<td> <%= demo.QTY %></td>
+<td> <%= demo.Price %></td>
+
+<td>
+ <img src="http://localhost:3001/images/upload/<%= demo.Image %>" height="70" width="70" alt="Smiley face" / > 
+
+</td>
+<td> <%= demo.user_id %></td>
+
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+</div>
+
+
+
+<div class="footer">
+<p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
+</div>
+  
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>

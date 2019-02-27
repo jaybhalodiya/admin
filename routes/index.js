@@ -20,6 +20,9 @@ var Pur = require('../models/Purchase.models.js');
 var PurReturn = require('../models/PurchaseReturn.models.js');
 var Cont = require('../models/ContactUs.models.js');
 var Nw = require('../models/NewsletterSubscription.models.js');
+
+var AddTo = require('../models/AddToCart.models.js');
+
 /* GET home page. */
 
 
@@ -1463,6 +1466,16 @@ router.get('/ShowAllNewsletterSubscription', function(req, res, next) {
     });
 });
 
+
+
+router.get('/ShowAllAddToCart', function(req, res, next) {
+    AddTo.find({}, function(err, data) {
+        console.log(data);
+        res.render('ShowAllAddToCart', {
+            ShowAllAddToCart: data
+        });
+    });
+});
 
 module.exports = router;
 
