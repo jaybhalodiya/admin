@@ -20,7 +20,7 @@ var Pur = require('../models/Purchase.models.js');
 var PurReturn = require('../models/PurchaseReturn.models.js');
 var Cont = require('../models/ContactUs.models.js');
 var Nw = require('../models/NewsletterSubscription.models.js');
-
+var Custom = require('../models/CustomeOrder.models.js');
 var AddTo = require('../models/AddToCart.models.js');
 
 /* GET home page. */
@@ -1476,6 +1476,18 @@ router.get('/ShowAllAddToCart', function(req, res, next) {
         });
     });
 });
+
+
+
+router.get('/ShowAllCustomeOrder', function(req, res, next) {
+    Custom.find({}, function(err, data) {
+        console.log(data);
+        res.render('ShowAllCustomeOrder', {
+            ShowAllCustomeOrder: data
+        });
+    });
+});
+
 
 module.exports = router;
 
