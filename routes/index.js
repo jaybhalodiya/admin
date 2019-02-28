@@ -31,6 +31,21 @@ var AddTo = require('../models/AddToCart.models.js');
 /** demo report */
 
 
+router.get('/CustomeOrderReport', function(req, res, next) {
+    var filename = "CustomeOrder.csv";
+    var dataArray;
+    Custom.find().lean().exec({}, function(err, products) {
+        if (err) res.send(err);
+
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename=' + filename);
+        res.csv(products, true);
+    });
+});
+
+
+
 
 
 router.get('/exporttocsv', function(req, res, next) {
