@@ -29,6 +29,9 @@
 </style>
 
 <body>
+<br>
+<br>
+<center><h2>Tailor</h3></center>
 <div class="frm">
 <form  action="/Tailor" method="post" autocomplete="off">
 <div class="form-group">
@@ -53,6 +56,7 @@
   </div>
 <div class="forms">
 
+<label>Company Name</label>
   <select class="form-control" name="Company_Name">
   <% for(var i=0; i<users.length;i++) { %>
   <option><%= users[i].Company_Name %></option>

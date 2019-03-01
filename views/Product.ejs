@@ -38,6 +38,9 @@
 
 
 <body>
+<br>
+<br>
+<center><h2>Product</h3></center>
 <div class="frm">
 <form enctype="multipart/form-data"  id="myForm" method="post">
 <div class="form-group">
@@ -61,6 +64,7 @@
 </div>
 <div class="frt">
 
+<label>Category</label>
 <select class="form-control" name="Category_Name">
 <% for(var i=0; i<users.length;i++) { %>
   <option><%= users[i].Category_Name %></option>
@@ -69,6 +73,7 @@
 
 
 <br />
+<label>Brand Name</label>
 <select class="form-control" name="Brand_Name">
 <% for(var i=0; i<user.length;i++) { %>
   <option><%= user[i].Brand_Name %></option>
@@ -77,6 +82,7 @@
 
 
 <br />
+<label>Size</label>
 <select class="form-control" name="Size">
 <% for(var i=0; i<anuser.length;i++) { %>
   <option><%= anuser[i].Size %> </option>
@@ -85,6 +91,7 @@
 
 
 <br />
+<label>Color</label>
 <select class="form-control" name="Color_Name">
 <span>Color</span>
 <% for(var i=0; i<cole.length;i++) { %>
@@ -93,7 +100,7 @@
 </select>
 <br />
 
-
+<label>Offer</label>
 <select class="form-control" name="Offer">
 <% for(var i=0; i<ofe.length;i++) { %>
   <option><%= ofe[i].Title %></option>

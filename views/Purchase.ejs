@@ -28,6 +28,9 @@ border: 1px solid;
 }
 </style>
 <body>
+<br>
+<br>
+<center><h2>Purchase</h3></center>
 <div class="tore">
 <form action="/Purchase" method="post" autocomplete="off">
 <div class="form-group">
@@ -38,6 +41,7 @@ border: 1px solid;
 </div>
 <div class="frm">
  
+<label>Supplier Name</label>
 <select class="form-control" name="Supplier_Name">
 <% for(var i=0; i<users.length;i++) { %>
   <option><%= users[i].Supplier_Name %></option>
@@ -46,6 +50,7 @@ border: 1px solid;
 
 <br />
 
+<label>Product Name</label>
 <select class="form-control" name="Product_Name">
 <% for(var i=0; i<arusers.length;i++) { %>
   <option><%= arusers[i].Product_Name %></option>

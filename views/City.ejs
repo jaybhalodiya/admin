@@ -30,10 +30,13 @@
     
 </style>
 <body>
-
+<br>
+<br>
+<center><h2>City</h2></center>
 <div class="tbl">
 <div class="froms">
 <form action="/City" method="post" autocomplete="off">
+<label for="Name Of state">State</label>
 
 <select class="form-control" name="State_Name">
 <% for(var i=0; i<users.length; i++) { %>
@@ -43,7 +46,7 @@
 
 <br />
 <div class="form-group">
-      
+      <label>City</label>
       <input type="text" class="form-control" id="inputCity" placeholder="Enter City" name="City_Name" required>
     </div>
     <button type="submit" class="btn btn-primary" id="tope">Add</button>

@@ -30,11 +30,13 @@
     
 </style>
 <body>
-
+<br>
+<br>
+<center><h2>Area</h2></center>
 <div class="tbl">
 <div class="froms">
 <form action="/Area" method="post" autocomplete="off">
-
+<label>City</label>
 <select class="form-control" name="City_Name">
 <% for(var i=0; i<users.length; i++) { %>
   <option><%= users[i].City_Name %></option>
@@ -43,7 +45,7 @@
 
 <br />
 <div class="form-group">
-      
+      <label>Area</label>
       <input type="text" class="form-control" id="inputCity" placeholder="Enter Area" name="Area_Name" required>
     </div>
 
