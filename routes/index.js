@@ -276,6 +276,7 @@ router.post('/edtTypesOfWork/:id', function(req, res) {
 /**city start*/
 router.get('/City', function(req, res, next) {
     Sta.find(function(err, users) {
+
         if (err) {
             console.log(err);
         } else {
@@ -289,21 +290,29 @@ router.get('/City', function(req, res, next) {
 });
 /** add city */
 router.post('/City', function(req, res, next) {
+Cty.find({City_Name:req.body.City_Name},function(err, city){
+    if(city.length==0){
 
-    const st = new Cty({
-        id: 0,
-        State_Name: req.body.State_Name,
-        City_Name: req.body.City_Name,
+        const st = new Cty({
+            id: 0,
+            State_Name: req.body.State_Name,
+            City_Name: req.body.City_Name,
+    
+    
+        });
+        st.save().then(() => {
+            console.log("insert success");
+            res.redirect('/City');
+    
+        }).catch(() => {
+            console.log("error");
+        });
 
-
-    });
-    st.save().then(() => {
-        console.log("insert success");
+    }else{
         res.redirect('/City');
-
-    }).catch(() => {
-        console.log("error");
-    });
+    }
+})
+    
 });
 
 router.get('/ShowAllCity', function(req, res, next) {
@@ -473,22 +482,28 @@ router.get('/Area', function(req, res, next) {
 
 });
 router.post('/Area', function(req, res, next) {
-
-    const st = new Ara({
-        id: 0,
-        Area_Name: req.body.Area_Name,
-        City_Name: req.body.City_Name,
-        Pincode: req.body.Pincode
-
-
-    });
-    st.save().then(() => {
-        console.log("insert success");
+Ara.find({Area_Name:req.body.Area_Name},function(err, area){
+    if(area.length==0){
+        const st = new Ara({
+            id: 0,
+            Area_Name: req.body.Area_Name,
+            City_Name: req.body.City_Name,
+            Pincode: req.body.Pincode
+    
+    
+        });
+        st.save().then(() => {
+            console.log("insert success");
+            res.redirect('/Area');
+    
+        }).catch(() => {
+            console.log("error");
+        });
+    }else{
         res.redirect('/Area');
-
-    }).catch(() => {
-        console.log("error");
-    });
+    }
+})
+   
 });
 
 router.get('/ShowAllArea', function(req, res, next) {
