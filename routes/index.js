@@ -290,29 +290,31 @@ router.get('/City', function(req, res, next) {
 });
 /** add city */
 router.post('/City', function(req, res, next) {
-Cty.find({City_Name:req.body.City_Name},function(err, city){
-    if(city.length==0){
+    Cty.find({
+        City_Name: req.body.City_Name
+    }, function(err, city) {
+        if (city.length == 0) {
 
-        const st = new Cty({
-            id: 0,
-            State_Name: req.body.State_Name,
-            City_Name: req.body.City_Name,
-    
-    
-        });
-        st.save().then(() => {
-            console.log("insert success");
+            const st = new Cty({
+                id: 0,
+                State_Name: req.body.State_Name,
+                City_Name: req.body.City_Name,
+
+
+            });
+            st.save().then(() => {
+                console.log("insert success");
+                res.redirect('/City');
+
+            }).catch(() => {
+                console.log("error");
+            });
+
+        } else {
             res.redirect('/City');
-    
-        }).catch(() => {
-            console.log("error");
-        });
+        }
+    })
 
-    }else{
-        res.redirect('/City');
-    }
-})
-    
 });
 
 router.get('/ShowAllCity', function(req, res, next) {
@@ -364,21 +366,23 @@ router.post('/edt/:id', function(req, res) {
 
 /**state add */
 router.post('/State', function(req, res, next) {
-    Sta.find({State_Name:req.body.State_Name},function (err,state) {
+    Sta.find({
+        State_Name: req.body.State_Name
+    }, function(err, state) {
         if (state.length == 0) {
             const st = new Sta({
                 id: 0,
                 State_Name: req.body.State_Name,
-        
+
             });
             st.save().then(() => {
                 console.log("insert success");
                 res.redirect('/State');
-        
+
             }).catch(() => {
                 console.log("error");
             });
-        }else{
+        } else {
             res.redirect('/State');
         }
     })
@@ -482,28 +486,30 @@ router.get('/Area', function(req, res, next) {
 
 });
 router.post('/Area', function(req, res, next) {
-Ara.find({Area_Name:req.body.Area_Name},function(err, area){
-    if(area.length==0){
-        const st = new Ara({
-            id: 0,
-            Area_Name: req.body.Area_Name,
-            City_Name: req.body.City_Name,
-            Pincode: req.body.Pincode
-    
-    
-        });
-        st.save().then(() => {
-            console.log("insert success");
+    Ara.find({
+        Area_Name: req.body.Area_Name
+    }, function(err, area) {
+        if (area.length == 0) {
+            const st = new Ara({
+                id: 0,
+                Area_Name: req.body.Area_Name,
+                City_Name: req.body.City_Name,
+                Pincode: req.body.Pincode
+
+
+            });
+            st.save().then(() => {
+                console.log("insert success");
+                res.redirect('/Area');
+
+            }).catch(() => {
+                console.log("error");
+            });
+        } else {
             res.redirect('/Area');
-    
-        }).catch(() => {
-            console.log("error");
-        });
-    }else{
-        res.redirect('/Area');
-    }
-})
-   
+        }
+    })
+
 });
 
 router.get('/ShowAllArea', function(req, res, next) {
@@ -885,19 +891,27 @@ router.get('/Category', function(req, res, next) {
     res.render('Category');
 });
 router.post('/Category', function(req, res, next) {
+    Cteg.find({
+        Category_Name: req.body.Category_Name
+    }, function(err, category) {
+        if (category.length == 0) {
+            const st = new Cteg({
+                id: 0,
+                Category_Name: req.body.Category_Name,
 
-    const st = new Cteg({
-        id: 0,
-        Category_Name: req.body.Category_Name,
+            });
+            st.save().then(() => {
+                console.log("insert success");
+                res.redirect('/Category');
 
-    });
-    st.save().then(() => {
-        console.log("insert success");
-        res.redirect('/Category');
+            }).catch(() => {
+                console.log("error");
+            });
+        } else {
+            res.redirect('/Category');
+        }
+    })
 
-    }).catch(() => {
-        console.log("error");
-    });
 });
 
 router.get('/ShowAllCategory', function(req, res, next) {
