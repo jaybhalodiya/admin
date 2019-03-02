@@ -355,19 +355,24 @@ router.post('/edt/:id', function(req, res) {
 
 /**state add */
 router.post('/State', function(req, res, next) {
-
-    const st = new Sta({
-        id: 0,
-        State_Name: req.body.State_Name,
-
-    });
-    st.save().then(() => {
-        console.log("insert success");
-        res.redirect('/State');
-
-    }).catch(() => {
-        console.log("error");
-    });
+    Sta.find({State_Name:req.body.State_Name},function (err,state) {
+        if (state.length == 0) {
+            const st = new Sta({
+                id: 0,
+                State_Name: req.body.State_Name,
+        
+            });
+            st.save().then(() => {
+                console.log("insert success");
+                res.redirect('/State');
+        
+            }).catch(() => {
+                console.log("error");
+            });
+        }else{
+            res.redirect('/State');
+        }
+    })
 });
 //List Table Data
 router.get('/ShowAllState', function(req, res, next) {
