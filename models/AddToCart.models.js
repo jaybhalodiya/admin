@@ -6,7 +6,10 @@ const AddTo = mongoose.Schema({
     QTY: Number,
     Price: Number,
     Image: String,
-    user_id: String
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserLogin'
+    }
 }, {
     timespace: true,
 });

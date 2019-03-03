@@ -49,7 +49,11 @@
  <img src="http://localhost:3001/images/upload/<%= demo.Image %>" height="70" width="70" alt="Smiley face" / > 
 
 </td>
-<td> <%= demo.user_id %></td>
+<td>
+<%if(demo.user_id && demo.user_id != null){%>
+    <%= demo.user_id.local.email %>
+<%}%>
+</td>
 
 
 

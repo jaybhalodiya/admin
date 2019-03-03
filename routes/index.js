@@ -1517,16 +1517,23 @@ router.get('/ShowAllNewsletterSubscription', function(req, res, next) {
 
 
 
+// router.get('/ShowAllAddToCart', function(req, res, next) {
+//     AddTo.find({}, function(err, data) {
+//         console.log(data);
+//         res.render('ShowAllAddToCart', {
+//             ShowAllAddToCart: data
+//         });
+//     });
+// });
+
 router.get('/ShowAllAddToCart', function(req, res, next) {
-    AddTo.find({}, function(err, data) {
-        console.log(data);
+    AddTo.find({}).populate('user_id').exec(function(err, data) {
+        console.log("-------------------------", data);
         res.render('ShowAllAddToCart', {
             ShowAllAddToCart: data
         });
     });
 });
-
-
 
 router.get('/ShowAllCustomeOrder', function(req, res, next) {
     Custom.find({}, function(err, data) {
