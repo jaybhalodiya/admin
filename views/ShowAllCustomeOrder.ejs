@@ -30,16 +30,19 @@
 <table class="table table-bordered" id="myTable">
 <thead>
 <tr>
-    <th scope="col">Your Name</th>
-    <th scope="col">Phone Number</th>
+    <th scope="col">User Name</th>
+    <th scope="col">Measurements</th>
     <th scope="col">Email ID</th>
-    <th scope="col"> City </th>
+    <th scope="col"> Phone </th>
+    <th scope="col">Message</th>
     <th scope="col">Image</th>
-    <th scope="col">Your_Message</th>
+    <th scope="col">Work Name</th>
+    <th scope="col">Size</th>
+    <th scope="col">City Name</th>
+    <th scope="col">Area Name</th>
+    <th scope="col">Tailor Name</th>
+    <th scope="col">Order</th>
    
-    
-
-  
     
 </tr>
 </thead>
@@ -47,14 +50,28 @@
 <% ShowAllCustomeOrder.forEach(function(demo){%>
 <tr>
 
-<td> <%= demo.Your_Name %></td>
-<td> <%= demo.Phone_Number %></td>
-<td> <%= demo.Email_ID %></td>
-<td> <%= demo.City %></td>
+<td> <%= demo.UserName %></td>
+<td> <%= demo.Measurements %></td>
+<td> <%= demo.EmailID %></td>
+<td> <%= demo.Phone %></td>
+<td> <%= demo.Message %></td>
 
 <td> <img src="http://localhost:3000/images/upload/<%= demo.Image %>" height="70" width="70" alt="Smiley face" / > 
 </td>
-<td> <%= demo.Your_Message %></td>
+<td> <%= demo.Work_Name %></td>
+<td><%= demo.Size %> </td>
+<td><%= demo.City_Name %> </td>
+<td><%= demo.Area_Name %> </td>
+
+<td>
+<select class="form-control" name="Tailor_Name">
+<% for(var i=0; i<type.length; i++) { %>
+  <option><%= type[i].Tailor_Name %> </option>
+  <% } %>
+</select>
+</td>
+
+<td><button type="button" class="btn btn-primary">Conform</button></td>
 
 
 

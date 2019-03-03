@@ -1535,14 +1535,49 @@ router.get('/ShowAllAddToCart', function(req, res, next) {
     });
 });
 
+// router.get('/ShowAllCustomeOrder', function(req, res, next) {
+//     Custom.find({}, function(err, data) {
+//         console.log(data);
+//         res.render('ShowAllCustomeOrder', {
+//             ShowAllCustomeOrder: data
+//         });
+//     });
+// });
+
+
+
+
 router.get('/ShowAllCustomeOrder', function(req, res, next) {
     Custom.find({}, function(err, data) {
-        console.log(data);
-        res.render('ShowAllCustomeOrder', {
-            ShowAllCustomeOrder: data
-        });
+        if (err) {
+            console.log(err);
+        } else {
+            Tler.find(function(err, type) {
+                if (err) {
+                    console.log(err);
+                } else {
+
+
+
+                    res.render('ShowAllCustomeOrder', {
+                        ShowAllCustomeOrder: data,
+                        type: type
+
+                    });
+                    console.log(data);
+                }
+
+            });
+        }
     });
 });
+
+
+
+
+
+
+
 
 
 module.exports = router;
