@@ -22,6 +22,7 @@ var Cont = require('../models/ContactUs.models.js');
 var Nw = require('../models/NewsletterSubscription.models.js');
 var Custom = require('../models/CustomeOrder.models.js');
 var AddTo = require('../models/AddToCart.models.js');
+var Fed = require('../models/Feedback.models.js');
 
 /* GET home page. */
 
@@ -1494,6 +1495,19 @@ router.get('/PurchaseReturnReport', function(req, res, next) {
 });
 
 
+router.get('/ShowAllFeedback', function(req, res, next) {
+    var moment = require('moment');
+    Fed.find({}, function(err, data) {
+        console.log(data);
+        res.render('ShowAllFeedback', {
+            ShowAllFeedback: data,
+            moment: moment
+        });
+    });
+});
+
+
+
 
 router.get('/ShowAllContactUs', function(req, res, next) {
     Cont.find({}, function(err, data) {
@@ -1534,6 +1548,11 @@ router.get('/ShowAllAddToCart', function(req, res, next) {
         });
     });
 });
+
+
+
+
+
 
 // router.get('/ShowAllCustomeOrder', function(req, res, next) {
 //     Custom.find({}, function(err, data) {
