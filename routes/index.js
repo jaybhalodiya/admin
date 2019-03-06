@@ -1592,7 +1592,35 @@ router.get('/ShowAllCustomeOrder', function(req, res, next) {
 });
 
 
+// router.get('/edtPan/:id', function(req, res) {
+//     console.log(req.params.id);
+//     Custom.findById(req.params.id, function(err, user) {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log(user);
 
+//             res.render('ShowAllCustomeOrder', {
+//                 ShowAllCustomeOrder: user
+//             });
+//         }
+//     });
+// });
+
+/* UPDATE city */
+router.get('/edtPan/:id', function(req, res) {
+    Custom.findByIdAndUpdate(req.params.id, {
+        status: "Approved"
+    }, function(err) {
+        if (err) {
+
+            res.redirect('edits/' + req.params.id);
+        } else {
+
+            res.redirect('/ShowAllCustomeOrder');
+        }
+    });
+});
 
 
 

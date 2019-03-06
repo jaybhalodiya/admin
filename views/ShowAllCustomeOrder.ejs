@@ -49,7 +49,9 @@
     <th scope="col">City Name</th>
     <th scope="col">Area Name</th>
     <th scope="col">Tailor Name</th>
-    <th scope="col">Order</th>
+    
+    <th scope="col">Action</th>
+
    
     
 </tr>
@@ -69,7 +71,7 @@
 <td> <%= demo.Work_Name %></td>
 <td><%= demo.Size %> </td>
 <td><%= demo.City_Name %> </td>
-<td><%= demo.Area_Name %> </td>
+<td><%= demo.Area_Name %> <%=demo.status%></td>
 
 <td>
 <select class="form-control" name="Tailor_Name">
@@ -79,9 +81,12 @@
 </select>
 </td>
 
-<td><button type="button" class="btn btn-primary">Conform</button></td>
 
-
+<%if(demo.status == "Pendding"){%>
+<td><a type="button" class="btn btn-primary" href='/edtPan/<%= demo._id %>'>Conform</a></td>
+<%}else{%>
+<td></td>
+<%}%>
 
 </tr>
 <%}) %>
