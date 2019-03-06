@@ -23,6 +23,7 @@ var Nw = require('../models/NewsletterSubscription.models.js');
 var Custom = require('../models/CustomeOrder.models.js');
 var AddTo = require('../models/AddToCart.models.js');
 var Fed = require('../models/Feedback.models.js');
+var Sals = require('../models/Sales.models.js');
 
 /* GET home page. */
 
@@ -1531,6 +1532,22 @@ router.get('/ShowAllNewsletterSubscription', function(req, res, next) {
 
 
 
+
+
+router.get('/ShowAllSalesOrder', function(req, res, next) {
+    Sals.find({}, function(err, data) {
+        console.log(data);
+        res.render('ShowAllSalesOrder', {
+            ShowAllSalesOrder: data
+        });
+    });
+});
+
+
+
+
+
+
 // router.get('/ShowAllAddToCart', function(req, res, next) {
 //     AddTo.find({}, function(err, data) {
 //         console.log(data);
@@ -1622,6 +1639,20 @@ router.get('/edtPan/:id', function(req, res) {
     });
 });
 
+
+router.get('/edtPanSal/:id', function(req, res) {
+    Sals.findByIdAndUpdate(req.params.id, {
+        status: "Approved"
+    }, function(err) {
+        if (err) {
+
+            res.redirect('edits/' + req.params.id);
+        } else {
+
+            res.redirect('/ShowAllSalesOrder');
+        }
+    });
+});
 
 
 

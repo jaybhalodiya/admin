@@ -1,0 +1,184 @@
+
+
+<% include partials/had %>
+<head>
+<script>
+document.getElementById('export').addEventListener('click',
+  exportPDF);
+
+var specialElementHandlers = {
+  // element with id of "bypass" - jQuery style selector
+  '.no-export': function(element, renderer) {
+    // true = "handled elsewhere, bypass text extraction"
+    return true;
+  }
+};
+
+function exportPDF() {
+
+  var doc = new jsPDF('p', 'pt', 'a4');
+  //A4 - 595x842 pts
+  //https://www.gnu.org/software/gv/manual/html_node/Paper-Keywords-and-paper-size-in-points.html
+
+
+  //Html source 
+  var source = document.getElementById('content').innerHTML;
+
+  var margins = {
+    top: 10,
+    bottom: 10,
+    left: 10,
+    width: 595
+  };
+
+  doc.fromHTML(
+    source, // HTML string or DOM elem ref.
+    margins.left,
+    margins.top, {
+      'width': margins.width,
+      'elementHandlers': specialElementHandlers
+    },
+
+    function(dispose) {
+      // dispose: object with X, Y of the last line add to the PDF 
+      //          this allow the insertion of new lines after html
+      doc.save('Test.pdf');
+    }, margins);
+}
+
+</script>
+
+</head>
+<style>
+    .tbl{
+        margin-left:20px;
+        margin-right:20px;
+        margin-top:50px;
+    }
+    .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #808080;
+  color: white;
+  text-align: center;
+  margin-bottom:5px;
+
+}
+.tb{
+  margin-left:1200px;
+}
+</style>
+<body>
+<div id="tab">
+<br>
+<br>
+<center><h2>All Details Of Supplier</h2></center>
+<div class="tb">
+<input type="button" value="Sales Report" 
+id="btPrint" onclick="createPDF()" />
+</div>
+
+   <div class="tbl">
+<table class="table table-bordered" id="myTable">
+<thead>
+<tr>
+    <th scope="col">Product</th>
+    <th scope="col">QTY</th>
+    <th scope="col">Price</th>
+  
+    <th scope="col">first_name</th>
+    <th scope="col">last_name</th>
+    <th scope="col">email</th>
+    <th scope="col">phone</th>
+    <th scope="col">street_address</th>
+    <th scope="col">city</th>
+    <th scope="col">zip</th>
+    <th scope="col">country</th>
+    <th scope="col">state</th>
+    <th scope="col">Action</th>
+
+   
+</tr>
+</thead>
+<tbody>
+<% ShowAllSalesOrder.forEach(function(demo){%>
+<tr>
+
+<td> <%= demo.Product %></td>
+<td> <%= demo.QTY %></td>
+<td> <%= demo.Price %></td>
+<td> <%= demo.first_name %></td>
+<td> <%= demo.last_name %></td>
+<td> <%= demo.email %></td>
+<td> <%= demo.phone %></td>
+<td> <%= demo.street_address %></td>
+<td> <%= demo.city %></td>
+<td> <%= demo.zip %></td>
+<td> <%= demo.country %></td>
+<td> <%= demo.state %></td>
+
+<%if(demo.status == "Pendding"){%>
+<td><a type="button" class="btn btn-primary" href='/edtPanSal/<%=demo._id %>'>Conform</a></td>
+<%}else{%>
+<td></td>
+<%}%>
+
+
+
+
+</tr>
+<%}) %>
+
+
+</tbody>
+
+
+</table>
+
+
+
+</div>
+
+
+
+
+<div class="footer">
+<p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
+</div>
+</div>
+</body>
+
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
+
+<script>
+    function createPDF() {
+        var sTable = document.getElementById('tab').innerHTML;
+
+        var style = "<style>";
+        style = style + "table {width: 100%;font: 17px Calibri;}";
+        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+        style = style + "padding: 2px 3px;text-align: center;}";
+        style = style + "</style>";
+
+        // CREATE A WINDOW OBJECT.
+        var win = window.open('', '', 'height=700,width=700');
+
+        win.document.write('<html><head>');
+        win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+        win.document.write('</head>');
+        win.document.write('<body>');
+        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+        win.document.write('</body></html>');
+
+        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+        win.print();    // PRINT THE CONTENTS.
+    }
+</script>
