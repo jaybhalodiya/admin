@@ -19,13 +19,21 @@
   margin-bottom:5px;
 
 }
+.tb{
+  margin-left:1200px;
+}
 </style>
+<body>
+<div id="tab">
 
 <br>
 <br>
 <center><h2>All Details Of Purchase Return</h2></center>
 
-   <a href='/PurchaseReturnReport' style="margin-left:60%; "> Purchase Return Report </a>
+<div class="tb">
+<input type="button" value="Supplier Report" 
+id="btPrint" onclick="createPDF()" />
+</div>
    <div class="tbl">
 <table class="table table-bordered" id="myTable">
 <thead>
@@ -67,9 +75,40 @@
 <div class="footer">
 <p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
 </div>
+</div>
+</body>
   
 <script>
 $(document).ready(function(){
     $('#myTable').dataTable();
 });
+</script>
+
+
+
+<script>
+    function createPDF() {
+        var sTable = document.getElementById('tab').innerHTML;
+
+        var style = "<style>";
+        style = style + "table {width: 100%;font: 17px Calibri;}";
+        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+        style = style + "padding: 2px 3px;text-align: center;}";
+        style = style + "</style>";
+
+        // CREATE A WINDOW OBJECT.
+        var win = window.open('', '', 'height=700,width=700');
+
+        win.document.write('<html><head>');
+        win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+        win.document.write('</head>');
+        win.document.write('<body>');
+        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+        win.document.write('</body></html>');
+
+        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+        win.print();    // PRINT THE CONTENTS.
+    }
 </script>
