@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Sals = mongoose.Schema({
-
+   
     Product: String,
     QTY: Number,
     Price: Number,
@@ -15,7 +15,11 @@ const Sals = mongoose.Schema({
     zip: Number,
     country: String,
     state: String,
-    status: String
+    status: String,
+      user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserLogin'
+    }
 
 }, {
     timespace: true,

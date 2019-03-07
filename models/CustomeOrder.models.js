@@ -12,7 +12,11 @@ const Custom = mongoose.Schema({
     Size: String,
     City_Name: String,
     Area_Name: String,
-    status: String
+    status: String,
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserLogin'
+    }
 
 }, {
     timespace: true,
