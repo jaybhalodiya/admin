@@ -277,13 +277,15 @@ router.post('/edtTypesOfWork/:id', function(req, res) {
 
 /**city start*/
 router.get('/City', function(req, res, next) {
+    console.log("error area",req.query);
     Sta.find(function(err, users) {
 
         if (err) {
             console.log(err);
         } else {
             res.render('City', {
-                users: users
+                users: users,
+                error:(req.query.error=="true"?true:false)
             });
             console.log(users);
         }
@@ -306,14 +308,14 @@ router.post('/City', function(req, res, next) {
             });
             st.save().then(() => {
                 console.log("insert success");
-                res.redirect('/ShowAllCity');
+                res.redirect('/City');
 
             }).catch(() => {
                 console.log("error");
             });
 
         } else {
-            res.redirect('/ShowAllCity');
+            res.redirect('/City?error=true');
         }
     })
 
@@ -379,13 +381,13 @@ router.post('/State', function(req, res, next) {
             });
             st.save().then(() => {
                 console.log("insert success");
-                res.redirect('/ShowAllState');
+                res.redirect('/State');
 
             }).catch(() => {
                 console.log("error");
             });
         } else {
-            res.redirect('/ShowAllState');
+            res.redirect('/State?error=true');
         }
     })
 });
@@ -446,7 +448,10 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/State', function(req, res, next) {
-    res.render('State');
+    res.render('State',{
+        error:(req.query.error=="true"?true:false)
+        
+    });
 });
 
 router.get('/login', function(req, res, next) {
@@ -475,12 +480,15 @@ router.get('/logout', function(req, res) {
 /**Start Area */
 
 router.get('/Area', function(req, res, next) {
+    console.log("error area",req.query);
     Cty.find(function(err, users) {
+        
         if (err) {
             console.log(err);
         } else {
             res.render('Area', {
-                users: users
+                users: users,
+                error:(req.query.error=="true"?true:false)
             });
             console.log(users);
         }
@@ -508,7 +516,7 @@ router.post('/Area', function(req, res, next) {
                 console.log("error");
             });
         } else {
-            res.redirect('/Area');
+            res.redirect('/Area?error=true');
         }
     })
 

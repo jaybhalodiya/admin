@@ -27,9 +27,16 @@
   margin-bottom:5px;
 
 }
+#tb{
+  margin-left:600px;
+}
     
 </style>
 <body>
+
+<%if(error == true){%>
+  <h4 id="tb"> same area all ready  exits </h4>
+<%}%>
 <br>
 <br>
 <center><h2>Area</h2></center>
@@ -51,7 +58,7 @@
 
     <div class="form-group">
     <label for="validationCustom05">Pincode</label>
-    <input type="text" class="form-control" id="validationCustom05" placeholder="Pincode" required name="Pincode" required>
+    <input type="text" class="form-control" id="validationCustom05" placeholder="Pincode" required name="Pincode" onClick="CheckIndianZipCode(txtOriginal.value);">
     
   </div>
 
@@ -65,5 +72,33 @@
   <div class="footer">
 <p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
 </div>
+
+<script type="text/javascript">
+
+function CheckIndianZipCode(MyZipCode)
+
+{
+
+       var CheckZipCode = /(^\d{6}$)/;
+
+       if(CheckZipCode.test(MyZipCode))
+
+       {
+
+             alert("Your Entered Zip Code Is Valid.");
+
+       }
+
+       else
+
+       {
+
+             alert("Your Entered Zip Code Is Not Valid.");
+
+       }
+
+}
+
+</script>
 
 </body>
