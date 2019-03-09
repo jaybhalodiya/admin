@@ -306,14 +306,14 @@ router.post('/City', function(req, res, next) {
             });
             st.save().then(() => {
                 console.log("insert success");
-                res.redirect('/City');
+                res.redirect('/ShowAllCity');
 
             }).catch(() => {
                 console.log("error");
             });
 
         } else {
-            res.redirect('/City');
+            res.redirect('/ShowAllCity');
         }
     })
 
@@ -379,13 +379,13 @@ router.post('/State', function(req, res, next) {
             });
             st.save().then(() => {
                 console.log("insert success");
-                res.redirect('/State');
+                res.redirect('/ShowAllState');
 
             }).catch(() => {
                 console.log("error");
             });
         } else {
-            res.redirect('/State');
+            res.redirect('/ShowAllState');
         }
     })
 });
