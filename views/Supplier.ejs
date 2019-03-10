@@ -41,12 +41,12 @@
 
   <div class="from-group">
 <label>Mobile Number</label>
-<input type="text" class="form-control"  placeholder="Mobile Number" name="Mobile">
+<input type="text" class="form-control"  placeholder="Mobile Number" name="Mobile" pattern="^\d{10}$" onkeypress="javascript:return isNumber(event)">
 </div>
 
 <div class="form-group">
     <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email ID" name="Email_ID">
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Email ID" name="Email_ID" onclick="emailValidator(document.getElementById('emailid'), 'This is Not a Valid Email')">
   </div>
 
 
@@ -89,4 +89,18 @@
  <p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
  </div>
    
+ <script type='text/javascript'> function emailValidator(element, alertMsg){ var emailvalid = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/; if(element.value.match(emailvalid)) { alert("Email Validation: Successful."); return true; }else{ alert(alertMsg); element.focus(); return false; } } </script>
+
+
+ <script>
+ // WRITE THE VALIDATION SCRIPT.
+ function isNumber(evt) {
+     var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+     if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+         return false;
+
+     return true;
+ }    
+</script>
+
 </body>

@@ -53,12 +53,12 @@
 <br />
 <div class="form-group">
       <label>Area</label>
-      <input type="text" class="form-control" id="inputCity" placeholder="Enter Area" name="Area_Name" required>
+      <input type="text" class="form-control" id="inputCity" placeholder="Enter Area" name="Area_Name" required onkeypress="return onlyAlphabets(event,this);">
     </div>
 
     <div class="form-group">
     <label for="validationCustom05">Pincode</label>
-    <input type="text" class="form-control" id="validationCustom05" placeholder="Pincode" required name="Pincode" onClick="CheckIndianZipCode(txtOriginal.value);">
+    <input type="text" class="form-control" id="validationCustom05" placeholder="Pincode" required name="Pincode" pattern="[0-9]{5}" >
     
   </div>
 
@@ -73,30 +73,26 @@
 <p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
 </div>
 
-<script type="text/javascript">
 
-function CheckIndianZipCode(MyZipCode)
+<script language="Javascript" type="text/javascript">
 
-{
-
-       var CheckZipCode = /(^\d{6}$)/;
-
-       if(CheckZipCode.test(MyZipCode))
-
-       {
-
-             alert("Your Entered Zip Code Is Valid.");
-
-       }
-
-       else
-
-       {
-
-             alert("Your Entered Zip Code Is Not Valid.");
-
-       }
-
+function onlyAlphabets(e, t) {
+    try {
+        if (window.event) {
+            var charCode = window.event.keyCode;
+        }
+        else if (e) {
+            var charCode = e.which;
+        }
+        else { return true; }
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+            return true;
+        else
+            return false;
+    }
+    catch (err) {
+        alert(err.Description);
+    }
 }
 
 </script>

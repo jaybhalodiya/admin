@@ -40,7 +40,7 @@
 <form action="/State" method="post" autocomplete="off">
 <div class="form-group">
   <label for="formGroupExampleInput">State</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example State" name="State_Name" required="">
+  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example State" name="State_Name" required="" onkeypress="return onlyAlphabets(event,this);">
 </div>
 <button type="submit" class="btn btn-primary" id="toper">Add</button>
 <a class="btn btn-primary" href="ShowAllState"> Display All State</a>
@@ -49,6 +49,29 @@
 <div class="footer">
 <p>© 2009-20. All Rights Reserved. Powered by RiseCommercer</p>
 </div>
+
+<script language="Javascript" type="text/javascript">
+
+function onlyAlphabets(e, t) {
+    try {
+        if (window.event) {
+            var charCode = window.event.keyCode;
+        }
+        else if (e) {
+            var charCode = e.which;
+        }
+        else { return true; }
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+            return true;
+        else
+            return false;
+    }
+    catch (err) {
+        alert(err.Description);
+    }
+}
+
+</script>
   
 </body>
 

@@ -24,6 +24,7 @@ var Custom = require('../models/CustomeOrder.models.js');
 var AddTo = require('../models/AddToCart.models.js');
 var Fed = require('../models/Feedback.models.js');
 var Sals = require('../models/Sales.models.js');
+var userSchema = require('../models/user.js')
 
 /* GET home page. */
 
@@ -277,7 +278,7 @@ router.post('/edtTypesOfWork/:id', function(req, res) {
 
 /**city start*/
 router.get('/City', function(req, res, next) {
-    console.log("error area",req.query);
+    console.log("error area", req.query);
     Sta.find(function(err, users) {
 
         if (err) {
@@ -285,7 +286,7 @@ router.get('/City', function(req, res, next) {
         } else {
             res.render('City', {
                 users: users,
-                error:(req.query.error=="true"?true:false)
+                error: (req.query.error == "true" ? true : false)
             });
             console.log(users);
         }
@@ -448,9 +449,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/State', function(req, res, next) {
-    res.render('State',{
-        error:(req.query.error=="true"?true:false)
-        
+    res.render('State', {
+        error: (req.query.error == "true" ? true : false)
+
     });
 });
 
@@ -467,8 +468,33 @@ router.get('/signup', function(req, res) {
 });
 
 router.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile.ejs', {
-        user: req.user
+    userSchema.find({}).count(function(err, usercount) {
+        console.log('----', usercount)
+
+        Sals.find({}).count(function(err, salscount) {
+            console.log('----', salscount)
+
+            Custom.find({}).count(function(err, customcount) {
+                console.log('----', customcount)
+
+                Sup.find({}).count(function(err, suppcount) {
+                    console.log("---", suppcount)
+
+
+
+
+                    res.render('profile.ejs', {
+                        user: req.user,
+                        usercount: usercount,
+                        salscount: salscount,
+                        customcount: customcount,
+                        suppcount: suppcount
+
+                    })
+
+                })
+            })
+        })
     });
 });
 
@@ -480,15 +506,15 @@ router.get('/logout', function(req, res) {
 /**Start Area */
 
 router.get('/Area', function(req, res, next) {
-    console.log("error area",req.query);
+    console.log("error area", req.query);
     Cty.find(function(err, users) {
-        
+
         if (err) {
             console.log(err);
         } else {
             res.render('Area', {
                 users: users,
-                error:(req.query.error=="true"?true:false)
+                error: (req.query.error == "true" ? true : false)
             });
             console.log(users);
         }
